@@ -1,0 +1,9 @@
+	<%- model_class = @destination.class -%>
+	<h1><%=t '.title', :default => @destination.title %></h1>
+	<br>
+  <%= markdown @destination.description %>
+	<br>
+	<article class="alert alert-info">
+		<h2><%= model_class.human_attribute_name(:prices) %></h2>
+		<%= markdown @destination.price %>
+	</article>

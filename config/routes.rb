@@ -1,4 +1,23 @@
 Bats::Application.routes.draw do
+  
+  resources :beaches do
+    resources :destinations
+  end
+
+  resources :treks do
+    resources :destinations
+  end
+
+  resources :safaris do
+    resources :destinations
+  end
+
+  # resources :destinations
+
+  resources :welcome
+  match 'about_us'           => 'welcome#about_us', as: :about_us
+  match 'contact_us'         => 'welcome#contact_us', as: :contact_us
+  match 'guides_and_porters' => 'welcome#guides_and_porters', as: :guides_and_porters
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +67,7 @@ Bats::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
 

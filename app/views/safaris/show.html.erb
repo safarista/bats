@@ -1,0 +1,62 @@
+<%- model_class = @safari.class -%>
+<h1><%=t '.title', :default => @safari.title %></h1>
+
+<%= markdown @safari.description %>
+
+<!-- <div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              safaris_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_safari_path(@safari), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              safari_path(@safari),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
+</div> -->
+<br>
+<article class="">
+<% if !@safari.destinations.blank? %>
+	<h6>Destinations</h6>
+	<hr>
+  <% for dt in @safari.destinations %>
+    <h3><%= link_to dt.title, safari_destination_path(@safari, dt) %></h3>
+		<%= markdown dt.description.truncate(300) %>
+		<p><%= link_to 'Read more...', safari_destination_path(@safari, dt) %></p>
+  <% end %>
+<% else %>
+  <div class="alert">
+  	<h6>Destination Itineraries</h6>
+		<p>There no Itineraries for this trip. Hold it right there, I'm on it.</p>
+  </div>
+<% end %>
+</article>
+<hr>
+<%= form_for [@safari, @safari.destinations.new], :html => { :class => 'form-horizontal' } do |f| %>
+  <h3 class="page-title">Add a new itinerary</h3>
+	<br>
+	<div class="control-group">
+    <%= f.label :title, 'Name', :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :title, :class => 'span3', required: true %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :price, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :price, :class => 'span6', rows: 6 %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, class: 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :description, class: 'span6', rows: 8 %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                safaris_path, :class => 'btn' %>
+  </div>
+<% end %>

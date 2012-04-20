@@ -1,0 +1,18 @@
+<%- model_class = Trek.new.class -%>
+<h1><%=t '.title', :default => 'Trekking' %></h1>
+
+<% @treks.each do |trek| %>
+	<article>
+		<h2><%= link_to trek.title, trek_path(trek) %></h2>
+		<%= markdown trek.description.truncate(500) %>
+		
+	</article>
+	<hr>
+<% end %>
+
+
+
+
+<%= link_to t('.new', :default => t("helpers.links.add_a_new_trek")),
+            new_trek_path,
+            :class => 'btn btn-primary' %>
