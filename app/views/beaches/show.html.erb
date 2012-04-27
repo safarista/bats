@@ -20,10 +20,10 @@
 <% if !@beach.destinations.blank? %>
 	<h6>Destinations</h6>
 	<hr>
-  <% for tr in @beach.destinations %>
-    <h3><%= link_to tr.title, beach_destination_path(@beach, tr) %></h3>
-		<%= markdown tr.description.truncate(300) %>
-		<p><%= link_to 'Read more...', beach_destination_path(@beach, tr) %></p>
+  <% for bc in @beach.destinations %>
+    <h3><%= link_to bc.title, beach_destination_path(@beach, bc), title: bc.title %></h3>
+		<%= markdown bc.description.truncate(300) %>
+		<p><%= link_to 'Read more...', beach_destination_path(@beach, bc) %></p>
   <% end %>
 <% else %>
   <div class="alert">
@@ -37,13 +37,13 @@
   <h3 class="page-title">Add a new itinerary</h3>
 	<br>
 	<div class="control-group">
-    <%= f.label :title, 'Name', :class => 'control-label' %>
+    <%= f.label :title, 'Destination name', :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :title, :class => 'span3', required: true %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :price, :class => 'control-label' %>
+    <%= f.label :price, 'Price breakdown', :class => 'control-label' %>
     <div class="controls">
       <%= f.text_area :price, :class => 'span6', rows: 6 %>
     </div>

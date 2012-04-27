@@ -20,7 +20,7 @@
 	<h6>Destinations</h6>
 	<hr>
   <% for dt in @safari.destinations %>
-    <h3><%= link_to dt.title, safari_destination_path(@safari, dt) %></h3>
+    <h3><%= link_to dt.title, safari_destination_path(@safari, dt), title: dt.title %></h3>
 		<%= markdown dt.description.truncate(300) %>
 		<p><%= link_to 'Read more...', safari_destination_path(@safari, dt) %></p>
   <% end %>
@@ -36,13 +36,13 @@
   <h3 class="page-title">Add a new itinerary</h3>
 	<br>
 	<div class="control-group">
-    <%= f.label :title, 'Name', :class => 'control-label' %>
+    <%= f.label :title, 'Destination name', :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :title, :class => 'span3', required: true %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :price, :class => 'control-label' %>
+    <%= f.label :price, 'Price breakdown', :class => 'control-label' %>
     <div class="controls">
       <%= f.text_area :price, :class => 'span6', rows: 6 %>
     </div>

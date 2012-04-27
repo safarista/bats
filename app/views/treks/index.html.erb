@@ -3,7 +3,7 @@
 
 <% @treks.each do |trek| %>
 	<article>
-		<h2><%= link_to trek.title, trek_path(trek) %></h2>
+		<h2><%= link_to trek.title, trek_path(trek), title: trek.title %></h2>
 		<%= markdown trek.description.truncate(500) %>
 		
 	</article>

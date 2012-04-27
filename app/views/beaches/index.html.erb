@@ -2,15 +2,15 @@
 <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
 
 
-						<% @beaches.each do |beach| %>
-						<article>
-							<h2><%= link_to beach.title, beach_path(beach) %></h2>
-							<%= markdown beach.description.truncate(500) %>
+<% @beaches.each do |beach| %>
+<article>
+	<h2><%= link_to beach.title, beach_path(beach), title: beach.title %></h2>
+	<%= markdown beach.description.truncate(500) %>
 
-						</article>
-						<hr>
-						<% end %>
+</article>
+<hr>
+<% end %>
 
-						<%= link_to t('.new', :default => t("helpers.links.add_another_beach")),
-						            new_beach_path,
-						            :class => 'btn btn-primary' %>
+<%= link_to t('.new', :default => t("helpers.links.add_another_beach")),
+            new_beach_path,
+            :class => 'btn btn-primary' %>

@@ -8,7 +8,7 @@
               treks_path, :class => 'btn'  %>
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_trek_path(@trek), :class => 'btn' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+  <%= link_to t('.destroy', :default => t("helpers.links.delete")),
               trek_path(@trek),
               :method => 'delete',
               :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
@@ -20,7 +20,7 @@
 	<h6>Destinations</h6>
 	<hr>
   <% for tr in @trek.destinations %>
-    <h3><%= link_to tr.title, trek_destination_path(@trek, tr) %></h3>
+    <h3><%= link_to tr.title, trek_destination_path(@trek, tr), title: tr.title %></h3>
 		<%= markdown tr.description.truncate(300) %>
 		<p><%= link_to 'Read more...', trek_destination_path(@trek, tr) %></p>
   <% end %>
@@ -36,13 +36,13 @@
   <h3 class="page-title">Add a new itinerary</h3>
 	<br>
 	<div class="control-group">
-    <%= f.label :title, 'Name', :class => 'control-label' %>
+    <%= f.label :title, 'Destination name', :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :title, :class => 'span3', required: true %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :price, :class => 'control-label' %>
+    <%= f.label :price, 'Price breakdown', :class => 'control-label' %>
     <div class="controls">
       <%= f.text_area :price, :class => 'span6', rows: 6 %>
     </div>

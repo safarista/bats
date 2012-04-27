@@ -3,7 +3,7 @@
 
 <% @safaris.each do |safari| %>
 <article>
-	<h2><%= link_to safari.title, safari_path(safari) %></h2>
+	<h2><%= link_to safari.title, safari_path(safari), title: safari.title %></h2>
 	<%= markdown safari.description.truncate(500) %>
 	
 </article>

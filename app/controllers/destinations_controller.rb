@@ -1,47 +1,35 @@
 class DestinationsController < ApplicationController
+  before_filter :find_destineable
+  respond_to :html
   # GET /destinations
   # GET /destinations.json
   def index
-    @destineable  = find_destineable
     @destinations = @destineable.destinations
-  
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @destinations }
-    end
   end
   # 
   # # GET /destinations/1
   # # GET /destinations/1.json
   def show
-    @destination = Destination.find(params[:id])
-    @destineable = find_destineable
-  # @destination = @destineable.destinations.find(params[:id])
-  
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @destination }
-    end
+    @destination  = @destineable.destinations.find(params[:id])
+    # @destination = Destination.find(params[:id])
   end
   # 
   # # GET /destinations/new
   # # GET /destinations/new.json
-  # def new
-  #   @destination = Destination.new
-  # 
-  #   respond_to do |format|
-  #     format.html # new.html.erb
-  #     format.json { render json: @destination }
-  #   end
-  # end
+  def new
+    @destination = @destineable.destinations.new
+  end
   # 
   # # GET /destinations/1/edit
   def edit
-    # @destination  = Destination.find(params[:id])
-    @destineable  = find_destineable# .find(params[:safari_id])
+    # params.each do |name, value|
+    #   if name =~  /(.*?)_id/
+    #     @destineable = $1.classify.constantize.find(value)
+    #     @destineable
+    #   end
+    # end
+    # render text: @destineable.inspect
     @destination  = @destineable.destinations.find(params[:id])
-    # flash[:alert] = 'You cannot edit a comment, Just ask the owner of the discussion to delete it.'
-    # redirect_to @destineable
   end
   # 
   # # POST /destinations
@@ -62,19 +50,20 @@ class DestinationsController < ApplicationController
   # 
   # # PUT /destinations/1
   # # PUT /destinations/1.json
-  # def update
-  #   @destination = Destination.find(params[:id])
-  # 
-  #   respond_to do |format|
-  #     if @destination.update_attributes(params[:destination])
-  #       format.html { redirect_to @destination, notice: 'Destination was successfully updated.' }
-  #       format.json { head :no_content }
-  #     else
-  #       format.html { render action: "edit" }
-  #       format.json { render json: @destination.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
+  def update
+    
+    @destination = Destination.find(params[:id])
+  
+    respond_to do |format|
+      if @destination.update_attributes(params[:destination])
+        format.html { redirect_to [@destineable, @destination], notice: 'Destination was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @destination.errors, status: :unprocessable_entity }
+      end
+    end
+  end
   # 
   # # DELETE /destinations/1
   # # DELETE /destinations/1.json
@@ -89,10 +78,9 @@ class DestinationsController < ApplicationController
   # end
   
   def create
-    @destineable = find_destineable
-    @destination = @destineable.destinations.create(params[:destination])
+    @destination = @destineable.destinations.build(params[:destination])
     if @destination.save
-      redirect_to :back, :notice => 'Destination was successfully added.'
+      redirect_to [@destineable, @destination], :notice => 'Destination was successfully added.'
     else
       flash[:error] = 'You cannot post an empty destination.'
       redirect_to :back
@@ -102,14 +90,35 @@ class DestinationsController < ApplicationController
 
   private
   
+  # def find_destineable
+  #   params.each_with_index do |name, value|
+  #     if value == params.length - 1
+  #       if name[0].to_s =~ /(.+)_id$/
+  #         @destineable = $1.classify.constantize.find(name[1])
+  #         return @destineable
+  #       end
+  #     end
+  #   end
+  #   nil
+  # end
+  
   def find_destineable
-    params.each_with_index do |name, value|
-      if value == params.length - 1
-        if name[0].to_s =~ /(.+)_id$/
-          return $1.classify.constantize.find(name[1])
-        end
+    params.each do |name, value|
+      if name =~ /(.+)_id$/
+        @destineable = $1.classify.constantize.find(value)
+        return @destineable
       end
     end
     nil
   end
+  # def find
+  #     parents ||= []
+  #     params.each do |name ,value|
+  #       if name =~ /(.*?)_id/
+  #           parents << $1.classify.constantize.find(value)
+  #       end
+  #     end
+  # 
+  #     return parents.last
+  # end
 end
