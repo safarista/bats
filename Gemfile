@@ -42,7 +42,19 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
+# Authentication and Authorisation
 gem 'sorcery'
+gem 'cancan'
+
+# SEO and text formatting
 gem 'friendly_id'
 gem 'redcarpet'
+# gem 'localeapp'
 
+# File upload management
+gem 'carrierwave'
+gem 'fog'
+gem 'mini_magick'
+
+# Pagination and scrolling log articles
+gem 'kaminari'
