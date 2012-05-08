@@ -1,5 +1,11 @@
 Bats::Application.routes.draw do
   
+  resources :day_trips
+
+  resources :albums do
+    resources :photos
+  end
+
   resources :beaches do
     resources :destinations
   end
@@ -14,7 +20,7 @@ Bats::Application.routes.draw do
 
   # resources :destinations
 
-  resources :welcome
+  # resources :welcome
   match 'about_us'           => 'welcome#about_us', as: :about_us
   match 'contact_us'         => 'welcome#contact_us', as: :contact_us
   match 'guides_and_porters' => 'welcome#guides_and_porters', as: :guides_and_porters
