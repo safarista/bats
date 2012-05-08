@@ -49,7 +49,7 @@ gem 'cancan'
 # SEO and text formatting
 gem 'friendly_id'
 gem 'redcarpet'
-# gem 'localeapp'
+gem 'localeapp'
 
 # File upload management
 gem 'carrierwave'
