@@ -1,6 +1,8 @@
 Bats::Application.routes.draw do
   
-  resources :day_trips
+  resources :day_trips do
+    resources :destinations
+  end
 
   resources :albums do
     resources :photos
@@ -21,9 +23,11 @@ Bats::Application.routes.draw do
   # resources :destinations
 
   # resources :welcome
-  match 'about_us'           => 'welcome#about_us', as: :about_us
-  match 'contact_us'         => 'welcome#contact_us', as: :contact_us
-  match 'guides_and_porters' => 'welcome#guides_and_porters', as: :guides_and_porters
+  match 'about_us'              => 'welcome#about_us', as: :about_us
+  match 'contact_us'            => 'welcome#contact_us', as: :contact_us
+  match 'guides_and_porters'    => 'welcome#guides_and_porters', as: :guides_and_porters
+  match 'itineraries'           => 'welcome#itineraries', as: :itineraries
+  match 'important_information' => 'welcome#important_information', as: :important_information
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

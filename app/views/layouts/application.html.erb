@@ -34,8 +34,8 @@
               <li><%= link_to "Trekking", :treks  %></li>
               <li><%= link_to "Safaris", :safaris  %></li>
               <li><%= link_to "Beach Destinations", :beaches  %></li>
-							<li><%= link_to "Day Trips", '#'  %></li>
-							<li><%= link_to "Itineraries", '#'  %></li>
+							<li><%= link_to "Day Trips", :day_trips  %></li>
+							<!-- <li><%= link_to "Itineraries", :itineraries  %></li> -->
             </ul>
 
           </div><!--/.nav-collapse -->
@@ -55,8 +55,8 @@
                   <li class="nav-header">Important links</li>
                   <li><%= link_to "Galleries", :albums  %></li>
                   <li><%= link_to "Accommodation", "#"  %></li>
-                  <li class="active"><%= link_to "Itineraries", "#"  %></li>
-                  <li><%= link_to "Important Information", "#"  %></li>
+                  <!-- <li><%= link_to "Itineraries", :itineraries  %></li> -->
+                  <li><%= link_to "Important Information", :important_information  %></li>
                   <li><%= link_to "About Us", :about_us  %></li>
 									<li><%= link_to "Contact Us", :contact_us  %></li> 
 									<li><%= link_to "Guides and porters", :guides_and_porters  %></li>
@@ -68,7 +68,7 @@
 			
       <footer>
 			<hr>
-        <p>&copy; Bless Africa Tours &amp; Safaris 2012 &bull; <a href="#">About us</a> &bull; <a href="#">Contact us</a></p>
+        <p>&copy; Bless Africa Tours &amp; Safaris 2012 &bull; <%= link_to "About us", :about_us %> &bull; <%= link_to "Contact us", :contact_us %></p>
       </footer>
 
     </div> <!-- /container -->

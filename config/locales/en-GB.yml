@@ -1,0 +1,10 @@
+en-GB:
+  helpers:
+    actions: Actions
+    links:
+      cancel: Cancel
+      confirm: Are you sure you about this?
+      destroy: Delete
+      edit: Edit %{model}
+    submit:
+      cancel: Cancel

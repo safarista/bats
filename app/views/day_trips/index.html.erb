@@ -1,36 +1,19 @@
 <%- model_class = DayTrip.new.class -%>
-<h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:title) %></th>
-      <th><%= model_class.human_attribute_name(:description) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @day_trips.each do |day_trip| %>
-      <tr>
-        <td><%= link_to day_trip.id, day_trip_path(day_trip) %></td>
-        <td><%= day_trip.title %></td>
-        <td><%= day_trip.description %></td>
-        <td><%=l day_trip.created_at %></td>
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_day_trip_path(day_trip), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      day_trip_path(day_trip),
-                      :method => :delete,
-                      :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-                      :class => 'btn btn-mini btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<h1><%=t '.title', default: 'Day trips offered by Bless Africa Tours and Safaris' %></h1>
+<h3><small>INTRODUCTION</small></h3>
+<p>The team at Bless Africa Tours and Safaris want visitors to Tanzania to be able to experience every facet of Tanzania: the culture, flora, fauna and the unique experiences our beautiful country can offer.
+<p>Moshi, our home, is very fortunate to be set in the foothills of Mount Kilimanjaro. Because of its unique position there is a wealth of day excursions and short trips available within relatively close proximity.
+<p>You do not need to be an athlete to be able to say that you have walked on Mount Kilimanjaro; we can arrange a day hike to the first camp, the Mandara hut, on the Marangu summit route on the mountain.
+<p>There are many beautiful walks within the rainforest incorporating scenic waterfalls and opportunities to view an amazing array of animal and plant life. Further afield the team will be able to offer day and short safaris to the National Parks of Arusha, Taringire, Ngorongoro and Lake Manyara.  Lake Chala, set to the east of Kilimanjaro, near the Kenyan border, offers a unique opportunity to explore a crater lake for a day or longer if desired.
+<p>Alongside the outstanding opportunities to view the natural environment there is also a strong cultural heritage belonging to the indigenous people from the area. We can arrange trips to explore the cultural traditions of both the Chagga, who live in the Kilimanjaro region, and the Masai, who live a nomadic life within Tanzania and Kenya.
 
+<h2>Day Safaris, Treks and Beach trips</h2>
+
+<% @day_trips.each do |day_trip| %>
+	<h3><%= link_to day_trip.title, day_trip_path(day_trip), title: day_trip.title %></h3>
+	<%= markdown day_trip.description.truncate(300) %>
+	<hr>
+<% end %>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_day_trip_path,
             :class => 'btn btn-primary' %>

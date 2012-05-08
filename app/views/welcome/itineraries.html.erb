@@ -1,0 +1,7 @@
+
+	<% @trip_types.collect do |dest| %>
+    <% aries = Destination.where(destineable_type: dest).order("created_at desc") %>
+  	<% for tt in aries %>
+		<h2><small><%= dest.model_name %></small> <%= link_to tt.title, '#' %></h2>
+		<% end %>
+  <% end %>
