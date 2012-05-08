@@ -1,0 +1,27 @@
+<%- model_class = Photo.new.class -%>
+<h1>
+<%=t '.title', :default => "Album: #{@album.title}" %> 
+<%= link_to t('.new', :default => t("helpers.links.add_photo")),
+            new_album_photo_path(@album),
+            :class => 'btn btn-primary pull-right' %>
+</h1>
+
+<hr>
+
+<div id="myCarousel" class="carousel">
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+	<% @photos.each do |photo| %>
+    <div class="item">
+			<%= link_to image_tag(photo.name? ? photo.name_url : "http://placehold.it/260x180", width: "100%"), album_photo_path(@album, photo) %>
+			<div class="carousel-caption">
+				<h4><%= @album.title %></h4>
+				<%= markdown photo.caption %>
+			</div>
+		</div>
+	<% end %>
+  </div>
+  <!-- Carousel nav -->
+  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>

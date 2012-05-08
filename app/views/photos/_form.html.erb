@@ -1,0 +1,36 @@
+<%= form_for [@album, @photo], html: { class: 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :album_id, 'Album Name', class: 'control-label' %>
+    <div class="controls">
+      <label class="checkbox"><strong><%= @album.title %></strong></label>
+    </div>
+  </div>
+	<% if @photo.name? %>
+	<div class="control-group">
+    <%= f.label :name, 'Edit Photo', class: 'control-label' %>
+    <div class="controls">
+      <%= image_tag @photo.name_url(:thumb) %>
+    </div>
+  </div>
+	<% else %>
+  <div class="control-group">
+    <%= f.label :name, 'Photo', class: 'control-label' %>
+    <div class="controls">
+      <%= f.file_field :name, class: 'text_field', required: true %>
+    </div>
+  </div>
+	<% end %>
+	
+  <div class="control-group">
+    <%= f.label :caption, 'Photo Caption', class: 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :caption, class: 'span5', rows: 4 %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, class: 'btn btn-primary' %>
+    <%= link_to t('.cancel', default: t("helpers.links.cancel")),
+                album_photos_path(@lbum), class: 'btn' %>
+  </div>
+<% end %>
