@@ -1,0 +1,21 @@
+<%- model_class = Album.new.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+
+<ul class="thumbnails">
+	<% @albums.each do |album| %>
+		<% album.photos.find(:last) do |p| %>
+  <li class="span3">
+		<div class="thumbnail" >
+			<%= link_to image_tag(p.name_url(:thumb), alt: p.caption, width: '100%'), album_photos_path(album) %>
+			<hr>
+			<h5><%= link_to album.title, album_photos_path(album) %></h5>
+		</div>
+  </li>
+		<% end %>
+	<% end %>
+</ul>
+<hr>
+
+<%= link_to t('.new', :default => t("helpers.links.new_album")),
+            new_album_path,
+            :class => 'btn btn-primary' %>
