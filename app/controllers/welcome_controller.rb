@@ -21,4 +21,8 @@ class WelcomeController < ApplicationController
   def important_information
     @title = 'Important information for your safari and comfort'
   end
+  
+  def about_tanzania
+    @title = 'About Tanzania, Mt Kilimanjaro and Trekking, Safaris, Beaches and short day trips'
+  end
 end

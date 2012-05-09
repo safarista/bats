@@ -24,6 +24,7 @@ Bats::Application.routes.draw do
 
   # resources :welcome
   match 'about_us'              => 'welcome#about_us', as: :about_us
+  match 'about_tanzania'        => 'welcome#about_tanzania', as: :about_tanzania
   match 'contact_us'            => 'welcome#contact_us', as: :contact_us
   match 'guides_and_porters'    => 'welcome#guides_and_porters', as: :guides_and_porters
   match 'itineraries'           => 'welcome#itineraries', as: :itineraries

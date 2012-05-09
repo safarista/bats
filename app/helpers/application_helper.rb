@@ -12,4 +12,13 @@ module ApplicationHelper
     redcarpet = Redcarpet::Markdown.new(Redcarpet::Render::HTML, *options)
     redcarpet.render(text).html_safe
   end
+  
+  def title
+    base_title = 'Bless Africa Tours and Safaris'
+    if @title.nil?
+      base_title
+    else
+      "#{@title} | #{base_title}"
+    end
+  end
 end
