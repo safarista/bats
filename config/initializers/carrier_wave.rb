@@ -9,7 +9,7 @@ CarrierWave.configure do |config|
 
 
     # config.storage        = :s3
-    config.fog_directory  = 'batsari' # required
+    config.fog_directory  = 'batsafaris' # required
     # config.fog_host     = 'https://media.daniloveday.co.uk' # Optional, defaults to nil
     config.fog_public     = true # Optional, defaults to true
     config.permissions    = 0666
