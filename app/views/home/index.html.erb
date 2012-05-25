@@ -35,10 +35,10 @@
 		<h1>African holiday adventures</h1>
 		<p>Bless Africa tours specialises in Mountain trekking, Safaris, beach holidays and short day trips in Tanzania and Kenya.</p>
 		<p class="download-info">
-			<a href="#" class="btn btn-primary btn-large">African Safaris</a>
-			<a href="#" class="btn btn-primary btn-large">Mountain Trekking</a>
-			<a href="#" class="btn btn-primary btn-large">Beach Holidays</a> 
-			<a href="#" class="btn btn-primary btn-large">Day trips <small>(Short holiday trips)</small></a>
+			<%= link_to  "African Safaris", :safaris, class: "btn btn-primary btn-large" %>
+			<%= link_to  "Mountain Trekking", :treks, class: "btn btn-primary btn-large" %>
+			<%= link_to  "Beach Holidays", :beaches, class: "btn btn-primary btn-large" %> 
+			<%= link_to  raw("Day trips <small>(Short holiday trips)</small>"), :day_trips, class: "btn btn-primary btn-large" %>
 		</p>
 	</div>
 	<div class="bs-links">
