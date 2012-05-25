@@ -1,4 +1,5 @@
 class SafarisController < ApplicationController
+  skip_before_filter :require_login, :only => [:index, :show]
   # GET /safaris
   # GET /safaris.json
   def index

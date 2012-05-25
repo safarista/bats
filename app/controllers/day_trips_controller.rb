@@ -1,4 +1,5 @@
 class DayTripsController < ApplicationController
+  skip_before_filter :require_login, :only => [:index, :show]
   # GET /day_trips
   # GET /day_trips.json
   def index

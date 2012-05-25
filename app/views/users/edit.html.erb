@@ -1,0 +1,4 @@
+<%- model_class = @user.class -%>
+<h1><%=t '.title', :default => t('helpers.titles.edit', :model => model_class.model_name.human,
+                                 :default => "Edit #{@user.full_name}") %></h1>
+<%= render :partial => 'form' %>

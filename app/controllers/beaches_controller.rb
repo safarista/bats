@@ -1,4 +1,5 @@
 class BeachesController < ApplicationController
+  skip_before_filter :require_login, :only => [:index, :show]
   # GET /beaches
   # GET /beaches.json
   def index

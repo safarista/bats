@@ -1,0 +1,92 @@
+<div class="row">
+	<div class="span2">
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+	</div>
+	<article class="span8">
+		<div id="myCarousel" class="carousel slide">
+		  <!-- Carousel items -->
+		  <div class="carousel-inner">
+			<% if @album.photos %>
+			  <% for photo in @album.photos %>
+			    <div class="item"><%= image_tag photo.name? ? photo.name_url : 'http://placehold.it/800x400', title: photo.caption, width: "100%" %></div>
+			  <% end %>
+			<% else %>
+			  <div class=" item"><%= image_tag "http://placehold.it/800x400", title: 'This is the slideshow place holder', width: "100%" %></div>
+				<div class=" item"><%= image_tag "http://placehold.it/800x400", title: 'This is the slideshow place holder', width: "100%" %></div>
+			<% end %>
+		  </div>
+		  <!-- Carousel nav -->
+		  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+		  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+		</div>
+		<!--/ Carousel -->
+	</article>
+	
+	<div class="span2">
+		<p>&nbsp;</p>
+		<p>&nbsp;</p>
+	</div>
+</div><!--/ row -->
+<hr>
+
+<header class="jumbotron masthead">
+	<div class="inner">
+		<h1>African holiday adventures</h1>
+		<p>Bless Africa tours specialises in Mountain trekking, Safaris, beach holidays and short day trips in Tanzania and Kenya.</p>
+		<p class="download-info">
+			<a href="#" class="btn btn-primary btn-large">African Safaris</a>
+			<a href="#" class="btn btn-primary btn-large">Mountain Trekking</a>
+			<a href="#" class="btn btn-primary btn-large">Beach Holidays</a> 
+			<a href="#" class="btn btn-primary btn-large">Day trips <small>(Short holiday trips)</small></a>
+		</p>
+	</div>
+	<div class="bs-links">
+		<ul class="quick-links">
+			<li><%= link_to "Important information", :important_information, title: 'Important information' %></li> 
+			<li><%= link_to "Accommodation providers", :accommodation, title: 'Accommodation providers' %></li> 
+			<li><%= link_to "Kit hire", :kit_hire, title: 'Kit hire' %></li> 
+			<li><%= link_to "Itineraries and prices", :itineraries, title: 'Itineraries and prices' %></li>
+			<li><%= link_to "About Tanzania", :about_tanzania, title: 'About Tanzania' %></li>
+			<li><%= link_to "Read our Blog", '#:posts', title: 'Read our Blog' %></li>
+		</ul>
+		<ul class="quick-links">
+			<li>LinkedIn </li>
+			<li>Facebook</li>
+			<li class="follow-btn">Twitter</li>
+			<li class="tweet-btn">Google+</li>
+		</ul>
+	</div>
+</header>
+<hr>
+<div class="marketing">
+	<div class="row">
+		<div class="span4">
+			<h2><i class="icon icon-user icon-large "></i> About us</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		</div>
+		<div class="span4">
+			<h2><i class="icon icon-home icon-large "></i> Accommodation providers</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		</div>
+		<div class="span4">
+			<h2><i class="icon icon-gift icon-large "></i> Kit Hire</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="span4">
+			<h2><i class="icon icon-picture icon-large "></i> Trekking Kilimanjaro</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		</div>
+		<div class="span4">
+			<h2><i class="icon icon-camera icon-large "></i> Day/Short trips and holidays</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		</div>
+		<div class="span4">
+			<h2><i class="icon icon-glass icon-large "></i> Safaris and Beach holidays</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		</div>
+	</div>
+</div>

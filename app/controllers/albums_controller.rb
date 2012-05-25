@@ -1,4 +1,5 @@
 class AlbumsController < ApplicationController
+  skip_before_filter :require_login, :only => [:index, :show]
   # GET /albums
   # GET /albums.json
   def index

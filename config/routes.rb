@@ -1,5 +1,9 @@
 Bats::Application.routes.draw do
   
+  # resources :users
+  resources :users
+  match 'signup' => 'users#new', :as => :signup
+  
   resources :day_trips do
     resources :destinations
   end
@@ -21,12 +25,22 @@ Bats::Application.routes.draw do
   end
 
   # resources :destinations
-
+  
+  # resources :users
+  match 'signup' => 'users#new', :as => :signup
+  
+  resources :sessions
+  match 'login'  => 'sessions#new', :as => :login
+  match 'logout' => 'sessions#destroy', :as => :logout
+  
+  resources :home
   # resources :welcome
   match 'about_us'              => 'welcome#about_us', as: :about_us
+  match 'accommodation'         => 'welcome#accommodation', as: :accommodation
   match 'about_tanzania'        => 'welcome#about_tanzania', as: :about_tanzania
   match 'contact_us'            => 'welcome#contact_us', as: :contact_us
   match 'guides_and_porters'    => 'welcome#guides_and_porters', as: :guides_and_porters
+  match 'kit_hire'              => 'welcome#kit_hire', as: :kit_hire 
   match 'itineraries'           => 'welcome#itineraries', as: :itineraries
   match 'important_information' => 'welcome#important_information', as: :important_information
   # The priority is based upon order of creation:
@@ -78,7 +92,7 @@ Bats::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'welcome#index'
+  root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 

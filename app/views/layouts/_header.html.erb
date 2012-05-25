@@ -37,7 +37,78 @@
 							<li><%= link_to "Day Trips", :day_trips  %></li>
 							<!-- <li><%= link_to "Itineraries", :itineraries  %></li> -->
             </ul>
-
+						
+						<!-- .dropdown -->
+						<ul class="nav pull-right">
+							<li class="dropdown">
+							<% if !logged_in? %>	
+							  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login <b class="caret"></b></a>
+							  <ul class="dropdown-menu">
+							    <li>
+										<%= form_tag sessions_path, :method => :post, :class => 'well' do %>
+										<h6>Login:</h6>
+										  <div class="controls">
+										    <%= text_field_tag :username, nil, placeholder: 'Username', autofocus: true %>
+										  </div>
+										  <div class="controls">
+										    <%= password_field_tag :password, nil, placeholder: 'Password' %>
+												<p class="help-block"><small><a href="#">Forgot Password?</a></small></p>
+										  </div>
+										   <div class="form-actions"><%= submit_tag "Login", class: 'btn btn-primary' %> </div> 
+										<% end %>
+									</li>
+							  </ul>
+							<% else %>
+							  <%= link_to "Logout", logout_path, title: 'Log out' %>
+							<% end %>
+							</li>
+							<li class="divider-vertical"></li>
+							<li class="dropdown">
+							<% if !logged_in? %>
+							  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sign up <b class="caret"></b></a>
+							  <ul class="dropdown-menu">
+									<li>
+										<%= form_for User.new, :html => { :class => 'well' } do |f| %>
+									  	<h6>Enter your details to register:</h6>
+											<div class="control-group">
+									  	  <div class="controls">
+									  	    <%= f.text_field :full_name, autofocus: true, placeholder: 'Full names' %>
+									  	  </div>
+									  	</div>
+									  	<div class="control-group">
+									  	  <div class="controls">
+									  	    <%= f.text_field :username, placeholder: 'Username(8 or more)' %>
+									  	  </div>
+									  	</div>
+									  	<div class="control-group">
+									  	  <div class="controls">
+									  	    <%= f.email_field :email, placeholder: 'Email' %>
+									  	  </div>
+									  	</div>
+									  	<div class="control-group">
+									  	  <div class="controls">
+									  	    <%= f.password_field :password, placeholder: 'Password' %>
+									  	  </div>
+									  	</div>
+									  	<div class="control-group">
+									  	  <div class="controls">
+									  	    <%= f.password_field :password_confirmation, placeholder: 'Confirm Password' %>
+									  	  </div>
+									  	</div>
+                    	
+									  	<div class="form-actions">
+									  	  <%= f.submit nil, :class => 'btn btn-primary' %>
+											</div>
+									<% end %>
+									</li>
+							  </ul>
+							<% else %>
+								<ul class="dropdown-menu">
+									<li><a href="#">Users</a></li>
+								</ul>
+							<% end %>	
+							</li>
+						</ul>
           </div><!--/.nav-collapse -->
         </div>
       </div>

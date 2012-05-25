@@ -1,4 +1,5 @@
 class DestinationsController < ApplicationController
+  skip_load_and_authorize_resource :only => [:index, :show]
   before_filter :find_destineable
   respond_to :html
   # GET /destinations
