@@ -4,7 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
-    <%= csrf_meta_tags %>
+		<meta name="description" content="Bless Africa Tours and safaris is a locally owned Travel company based in Moshi. With over 10 years experience in the Trek and Travel industry and extensive local knowledge and links the company strives to add something extra to a visit to Tanzania">
+		<meta name="keywords" content="hiking, kilimanjaro, tanzania, safaris, mount meru, bless africa, tours, short holidays, day trips, beach holidays, african safaris, nelson kelem, joanne cutts, godbless swai, safarista">
+    <meta name="robots" content="robots.txt">
+		<%= csrf_meta_tags %>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
     <!--[if lt IE 9]>
@@ -31,11 +34,19 @@
           <%= link_to "Bless Africa Tours", :root, class: "brand" %>
           <div class="container nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Trekking", :treks  %></li>
-              <li><%= link_to "Safaris", :safaris  %></li>
-              <li><%= link_to "Beach Destinations", :beaches  %></li>
-							<li><%= link_to "Day Trips", :day_trips  %></li>
-							<li><%= link_to "Kit Hire", :kit_hire  %></li>
+              <li><%= link_to "Mountain Trekking", :treks, title: 'Hiking on Kilimanjaro and Meru'  %></li>
+              <li><%= link_to "Wildlife Safaris", :safaris, title: 'African Safaris in Tanzania'  %></li>
+              <li><%= link_to "Beach Holidays", :beaches, title: 'Tanzania beach holidays'  %></li>
+							<li><%= link_to "Day Trips", :day_trips, title: 'Short breaks and holidays'  %></li>
+							<li><%= link_to "Blog", :posts, title: 'Our travel blog'  %></li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><%= link_to "Kit Hire", :kit_hire, title: 'Hiking equipment hire and advice' %></li>
+									<li><%= link_to "Accommodation", :accommodation, title: 'Tour accommodations' %></li>
+									<li><%= link_to "About Tanzania", :about_tanzania, title: 'About Tanzania safaris and hiking' %></li>
+								</ul>
+							</li>
             </ul>
 						
 						<!-- .dropdown -->
