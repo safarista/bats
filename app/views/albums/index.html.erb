@@ -16,6 +16,8 @@
 </ul>
 <hr>
 
+<% if can? :access, @albums %>
 <%= link_to t('.new', :default => t("helpers.links.new_album")),
             new_album_path,
             :class => 'btn btn-primary' %>
+<% end %>

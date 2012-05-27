@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   
-  # ========SCHEMA layout========
-  # t.string :full_name,        :null    => false
+  # #========SCHEMA Structure========
+  #   t.string :full_name,        :null    => false
   #   t.string :slag
   #   t.string :username,         :null    => false
   #   t.string :email,            :default => nil 
@@ -12,22 +12,29 @@ class User < ActiveRecord::Base
   #   t.string :crypted_password, :default => nil
   #   t.string :salt,             :default => nil
   
-  # Athentication
+  # # Athentication
   authenticates_with_sorcery!
   
-  # MassAssignment protection
-  attr_accessible :full_name, :username, :email, :admin, :moderator, :ip_address_info, :password, :password_confirmation, :about, :slag
+  # # MassAssignment protection
+  attr_accessible :full_name, :username, :email, :admin, :moderator, :ip_address_info, :password, :password_confirmation, :about, :slug
   
-  # Validations
+  # # Validations
   validates :full_name, :username, presence: true
   validates :username, length: { in: 8..15 }
   validates :email, presence: true,
-                    uniqueness: true, 
+                    uniqueness: { :case_sensitive => false }, 
                     format: { with: /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i, 
                               message: 'Email format is not acceptable.' }
 
-  validates :password, length: { in: 8..15 }
+  validates :password, length: { in: 8..15 }, if: :password
   validates :password, confirmation: true
-  validates :password_confirmation, presence: true
+  validates :password_confirmation, presence: true, if: :password
+  
+  # # Associations
+  has_many :posts, dependent: :nullify
+  
+  # # SEO search friendly URLS with FriendlyId
+  extend FriendlyId
+  friendly_id :full_name, use: :history
   
 end

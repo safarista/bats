@@ -11,6 +11,9 @@
 <hr>
 <% end %>
 
-<%= link_to t('.new', :default => t("helpers.links.add_another_beach")),
-            new_beach_path,
-            :class => 'btn btn-primary' %>
+
+<% if can? :access, @beaches %>
+	<%= link_to t('.new', :default => t("helpers.links.add_another_beach")),
+            	new_beach_path,
+            	:class => 'btn btn-primary' %>
+<% end %>

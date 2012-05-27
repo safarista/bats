@@ -1,0 +1,44 @@
+<%= form_for [@post, @comment], :html => { :class => 'form-horizontal' } do |f| %>
+
+	<% if @comment.errors.any? %>
+	  <div id="control-group">
+	    <div class="alert alert-error controls ">
+			<a class="close" data-dismiss="alert">×</a>
+			<h4 class="alert-heading"><%= pluralize(@comment.errors.count, "error") %></h4>
+	    <% @comment.errors.full_messages.each do |msg| %>
+	      <em><%= msg %></em><br>
+	    <% end %>
+	    </div>
+	  </div>
+	<% end %>
+	
+	
+  <div class="control-group">
+    <%= f.label :commenter, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :commenter, placeholder: 'Your Names', :class => 'span3' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :comment_email, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.email_field :comment_email, placeholder: 'Email - We never publish emails', :class => 'span3' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :comment_email, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.url_field :comment_url, placeholder: 'Website', :class => 'span3' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :content, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :content, required: true, placeholder: 'Type your comment here', :class => 'span6', rows: 4 %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+  </div>
+<% end %>

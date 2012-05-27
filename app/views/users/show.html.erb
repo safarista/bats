@@ -1,35 +1,22 @@
 <%- model_class = @user.class -%>
-<h1><%=t '.title', :default => model_class.model_name.human %></h1>
+<h1><%=t '.title', :default => @user.full_name %> <small><i>(<%= @user.username %>)</i></small></h1>
 
-<p>
-  <strong><%= model_class.human_attribute_name(:full_name) %>:</strong><br>
-  <%= @user.full_name %>
-</p>
-<p>
-  <strong><%= model_class.human_attribute_name(:username) %>:</strong><br>
-  <%= @user.username %>
-</p>
-<p>
-  <strong><%= model_class.human_attribute_name(:email) %>:</strong><br>
-  <%= @user.email %>
-</p>
-<p>
-  <strong><%= model_class.human_attribute_name(:admin) %>:</strong><br>
-  <%= @user.admin %>
-</p>
-<p>
-  <strong><%= model_class.human_attribute_name(:moderator) %>:</strong><br>
-  <%= @user.moderator %>
-</p>
-<p>
-  <strong><%= model_class.human_attribute_name(:ip_address_info) %>:</strong><br>
-  <%= @user.ip_address_info %>
-</p>
-<p>
-  <strong><%= model_class.human_attribute_name(:about_me) %>:</strong><br>
-  <%= @user.about %>
-</p>
+<section class="well">
+  <h3>About <small>(<%= @user.username %>)</small>:</h3>
+	<%= markdown "Email: #{@user.email}" if can? :update, @user %>
+  <%= markdown @user.about %>
+</section>
 
+
+<% if can? :access, :users %>
+<p>
+  <strong>This person is:</strong><br>
+  <%= @user.admin? ? raw('<i class="label label-success">an Admin :)</i>') : raw('<i class="label label-important">not and Admin</i>') %> and <br> 
+  <%= @user.moderator? ? raw('<i class="label label-success">a Moderator :)</i>') : raw('<i class="label label-important">not a Moderator :/</i>') %>
+</p>
+<% end %>
+
+<% if can? :update, @user %>
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
               users_path, :class => 'btn'  %>
@@ -41,3 +28,4 @@
               :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
               :class => 'btn btn-danger' %>
 </div>
+<% end %>

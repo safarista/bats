@@ -2,19 +2,21 @@
 <h1><%=t '.title', :default => @beach.title %></h1>
 
   <%= markdown @beach.description %>
-
-<div class="form-actions">
-  <%= link_to t('.back', :default => t("helpers.links.back")),
-              beaches_path, :class => 'btn'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
-              edit_beach_path(@beach), :class => 'btn' %>
-  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              beach_path(@beach),
-              :method => 'delete',
-              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
-              :class => 'btn btn-danger' %>
-</div>
-
+	
+<% if can? :access, @beach %>
+	<div class="form-actions">
+	  <%= link_to t('.back', :default => t("helpers.links.back")),
+	              beaches_path, :class => 'btn'  %>
+	  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+	              edit_beach_path(@beach), :class => 'btn' %>
+	  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+	              beach_path(@beach),
+	              :method => 'delete',
+	              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+	              :class => 'btn btn-danger' %>
+	</div>
+<% end %>
+<br>
 
 <article class="">
 <% if !@beach.destinations.blank? %>
@@ -23,7 +25,7 @@
   <% for bc in @beach.destinations %>
     <h3><%= link_to bc.title, beach_destination_path(@beach, bc), title: bc.title %></h3>
 		<%= markdown bc.description.truncate(300) %>
-		<p><%= link_to 'Read more...', beach_destination_path(@beach, bc) %></p>
+		<p><%= link_to 'Read more...', beach_destination_path(@beach, bc), class: 'btn' %></p>
   <% end %>
 <% else %>
   <div class="alert">
@@ -33,31 +35,36 @@
 <% end %>
 </article>
 <hr>
-<%= form_for [@beach, @beach.destinations.new], :html => { :class => 'form-horizontal' } do |f| %>
-  <h3 class="page-title">Add a new itinerary</h3>
-	<br>
-	<div class="control-group">
-    <%= f.label :title, 'Destination name', :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :title, :class => 'span3', required: true %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :price, 'Price breakdown', :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :price, :class => 'span6', rows: 6 %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :description, class: 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :description, class: 'span6', rows: 8 %>
-    </div>
-  </div>
 
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                beaches_path, :class => 'btn' %>
-  </div>
+
+<% if can? :access, @beach %>
+
+	<%= form_for [@beach, @beach.destinations.new], :html => { :class => 'form-horizontal' } do |f| %>
+	  <h3 class="page-title">Add a new itinerary</h3>
+		<br>
+		<div class="control-group">
+	    <%= f.label :title, 'Destination name', :class => 'control-label' %>
+	    <div class="controls">
+	      <%= f.text_field :title, :class => 'span3', required: true %>
+	    </div>
+	  </div>
+	  <div class="control-group">
+	    <%= f.label :price, 'Price breakdown', :class => 'control-label' %>
+	    <div class="controls">
+	      <%= f.text_area :price, :class => 'span6', rows: 6 %>
+	    </div>
+	  </div>
+	  <div class="control-group">
+	    <%= f.label :description, class: 'control-label' %>
+	    <div class="controls">
+	      <%= f.text_area :description, class: 'span6', rows: 8 %>
+	    </div>
+	  </div>
+	
+	  <div class="form-actions">
+	    <%= f.submit nil, :class => 'btn btn-primary' %>
+	    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+	                beaches_path, :class => 'btn' %>
+	  </div>
+	<% end %>
 <% end %>

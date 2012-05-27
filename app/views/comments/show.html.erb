@@ -1,0 +1,25 @@
+<article>
+	<h1><%=t '.title', :default => "Article: #{@post.title}" %></h1>
+	<div class="alert alert-success">
+	  <strong><%= @comment.commenter %></strong>
+		<% if can? :access, :comments %>
+		  <br>
+			<%= @comment.comment_email %>
+			<br>
+		  <%= @comment.ip_address_info %>
+		<% end %>
+	</div>
+  <%= markdown @comment.content %>
+</article>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              post_comments_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_post_comment_path(@post, @comment), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              post_comment_path(@post, @comment),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
+</div>

@@ -1,5 +1,10 @@
 Bats::Application.routes.draw do
   
+  
+  resources :posts do
+    resources :comments
+  end
+
   # resources :users
   resources :users
   match 'signup' => 'users#new', :as => :signup
@@ -34,7 +39,7 @@ Bats::Application.routes.draw do
   match 'logout' => 'sessions#destroy', :as => :logout
   
   resources :home
-  # resources :welcome
+  resources :welcome
   match 'about_us'              => 'welcome#about_us', as: :about_us
   match 'accommodation'         => 'welcome#accommodation', as: :accommodation
   match 'about_tanzania'        => 'welcome#about_tanzania', as: :about_tanzania

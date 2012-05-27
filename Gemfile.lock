@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/ryanb/cancan.git
+  revision: ccd24ab30fdd0b48ac0ad71080445f5366788208
+  branch: 2.0
+  specs:
+    cancan (2.0.0.alpha)
+
+GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
   revision: eb348d89373bd3828848887bc0f7c3a6aed236d9
   specs:
@@ -41,7 +48,6 @@ GEM
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     builder (3.0.0)
-    cancan (1.6.7)
     carrierwave (0.6.2)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -174,7 +180,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
-  cancan
+  cancan!
   carrierwave
   coffee-rails (~> 3.2.1)
   fog

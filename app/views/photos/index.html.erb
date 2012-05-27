@@ -1,9 +1,12 @@
 <%- model_class = Photo.new.class -%>
 <h1>
 <%=t '.title', :default => "Album: #{@album.title}" %> 
-<%= link_to t('.new', :default => t("helpers.links.add_photo")),
-            new_album_photo_path(@album),
-            :class => 'btn btn-primary pull-right' %>
+
+<% if can? :access, @photos %>
+	<%= link_to t('.new', :default => t("helpers.links.add_photo")),
+	            new_album_photo_path(@album),
+	            :class => 'btn btn-primary pull-right' %>
+<% end %>
 </h1>
 
 <hr>

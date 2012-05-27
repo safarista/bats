@@ -12,7 +12,9 @@
 
 
 
-
-<%= link_to t('.new', :default => t("helpers.links.add_a_new_trek")),
-            new_trek_path,
-            :class => 'btn btn-primary' %>
+<% if can? :access, @treks %>
+	<!-- Permissions for Admins and Moderators -->
+	<%= link_to t('.new', :default => t("helpers.links.add_a_new_trek")),
+	            new_trek_path,
+	            :class => 'btn btn-primary' %>
+<% end %>

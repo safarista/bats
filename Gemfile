@@ -44,7 +44,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Authentication and Authorisation
 gem 'sorcery'
-gem 'cancan'
+gem "cancan", git: "git://github.com/ryanb/cancan.git", branch: "2.0"
 
 # SEO and text formatting
 gem 'friendly_id'

@@ -1,0 +1,47 @@
+<%= form_for @post, :html => { :class => 'form-horizontal' } do |f| %>
+
+	<% if @post.errors.any? %>
+	  <div id="control-group">
+	    <div class="alert alert-error controls ">
+			<a class="close" data-dismiss="alert">×</a>
+			<h4 class="alert-heading"><%= pluralize(@post.errors.count, "error") %></h4>
+	    <% @post.errors.full_messages.each do |msg| %>
+	      <em><%= msg %></em><br>
+	    <% end %>
+	    </div>
+	  </div>
+	<% end %>
+
+
+  <div class="control-group">
+    <%= f.label :title, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :title, required: true, :class => 'span6' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :content, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :content, :class => 'span7', rows: 9, required: true %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :published, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :published %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ban_comments, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :ban_comments, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                posts_path, :class => 'btn' %>
+  </div>
+<% end %>

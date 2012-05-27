@@ -10,6 +10,9 @@
 <hr>
 <% end %>
 
-<%= link_to t('.new', :default => t("helpers.links.add_another_safari")),
-            new_safari_path,
-            :class => 'btn btn-primary' %>
+
+<% if can? :access, @safaris %>
+	<%= link_to t('.new', :default => t("helpers.links.add_another_safari")),
+	            new_safari_path,
+	            :class => 'btn btn-primary' %>
+<% end %>

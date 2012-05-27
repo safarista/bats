@@ -1,0 +1,106 @@
+<%- model_class = @post.class -%>
+<h1><%=t '.title', :default => @post.title, title: @post.title %></h1>
+
+<p><small><%= time_tag @post.published, format: '%m %b %Y', pubdate: true if @post.published? %> <b>By:</b> <%= link_to @post.user.full_name, user_path(@post.user), title: @post.user.full_name %></small></p>
+
+
+<article>
+  <%= markdown @post.content %>
+
+	<% if can? :access, :posts %>
+	<p class="alert alert-success"><strong>IP address information:</strong> <%= @post.ip_address_info %></p>
+	<% end %>
+</article>
+
+<% if can? :update, :posts %>
+	<div class="form-actions">
+	  <%= link_to t('.back', :default => t("helpers.links.back")),
+	              posts_path, :class => 'btn'  %>
+	  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+	              edit_post_path(@post), :class => 'btn' %>
+	  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+	              post_path(@post),
+	              :method => 'delete',
+	              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+	              :class => 'btn btn-danger' %>
+	</div>
+<% end %>
+
+<!-- ======Comments roll====== -->
+<h3>Comments:</h3>
+<% if !@comments.blank? %>
+  <% for comment in @comments %>
+    <table class="table">
+    <tr>
+    	<td class="span2">
+				<p><%= link_to comment.commenter, comment.comment_url? ? comment.comment_url : '#', title: comment.commenter, target: '_blank' %><br>
+				<small><%= distance_of_time_in_words comment.created_at, Time.now %> ago</small></p>
+			</td>
+			<td><%= markdown comment.content %></td>
+    </tr>
+    </table>
+  <% end %>
+<% else %>
+  <p>No Comments, Be the first to comment.</p>
+<% end %>
+
+<hr>
+<!-- ===Comments form=== -->
+
+<% if @post.ban_comments? %>
+	<section class="well">
+		<p class="alert alert-info"><strong>Sorry!</strong> Commenting has been disabled on this article.</p>
+	</section>
+	<% else %>
+	  
+	<section class="well">
+		<%= form_for [@post, @comment], :html => { :class => 'form-horizontal' } do |f| %>
+			<fieldset id="leave_a_comment" class="">
+				<legend>Leave a comment</legend>
+		<% if logged_in? %>
+		  <div class="control-group">
+		    <%= f.label :commenter, 'Your names', :class => 'control-label' %>
+		    <div class="controls">
+		      <%= f.text_field :commenter, required: true, value: current_user.full_name, :class => 'span3' %>
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <%= f.label :comment_email, 'Your e-mail', :class => 'control-label' %>
+		    <div class="controls">
+		      <%= f.email_field :comment_email, required: true, value: current_user.email, :class => 'span3' %>
+		    </div>
+		  </div>
+		<% else %>
+			<div class="control-group">
+		    <%= f.label :commenter, 'Your names', :class => 'control-label' %>
+		    <div class="controls">
+		      <%= f.text_field :commenter, required: true, placeholder: 'Your Names', :class => 'span3' %>
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <%= f.label :comment_email, 'Your e-mail', :class => 'control-label' %>
+		    <div class="controls">
+		      <%= f.email_field :comment_email, required: true, placeholder: 'Email - We never publish emails', :class => 'span3' %>
+		    </div>
+		  </div>
+		<% end %>
+			<div class="control-group">
+		    <%= f.label :comment_url, 'Your website', :class => 'control-label' %>
+		    <div class="controls">
+		      <%= f.url_field :comment_url, placeholder: 'Website (optional)', :class => 'span3' %>
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <%= f.label :content, 'Your comment', :class => 'control-label' %>
+		    <div class="controls">
+		      <%= f.text_area :content, required: true, placeholder: 'Type your comment here', :class => 'span6', rows: 5 %>
+		    </div>
+		  </div>
+		
+		  <div class="form-actions">
+		    <%= f.submit nil, :class => 'btn btn-primary' %>
+		  </div>
+			</fieldset>
+		<% end %>
+	</section>
+<% end %>
