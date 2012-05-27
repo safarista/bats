@@ -5,3 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# Create the first database user with permisions to be the boss.
+
+User.create(
+  full_name: 'Nelson Kelem',
+  username: 'jackBouer',
+  email: 'nelson@safarista.com',
+  password: 'password',
+  password_confirmation: 'password',
+  admin: true,
+  about: 'I am a web and mobile applications developer based in Lincoln UK. I hail from the foothills of Narok in Kenya. Dont say anything bad about morans and Maasai, I shall take you to the bush for it. :] '
+)
