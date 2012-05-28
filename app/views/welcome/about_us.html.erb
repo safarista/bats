@@ -2,7 +2,7 @@
 <h6>THE COMPANY</h6>
 <p>Bless Africa Tours and Safaris specialises in providing Mountain Trekking, Safari and Beach Holidays in Tanzania. Set in the foothills of Mount Kilimanjaro, Bless Africa Tours and Safaris is the fastest growing local tour operator based in Moshi,
 <p>Tanzania has been blessed with a rich history and cultural heritage, idyllic beaches, amazing wildlife, and the roof-top of Africa – Mount Kilimanjaro. All of this is complemented by the warm hospitality of the charming Tanzanian people making a visit to Tanzania a holiday experience that will always be remembered.
-<p>Bless Africa Tours and Safaris is registered under the Tanzania Company Act, 2002. The company is owned by Tanzanians who, after years of working for other established companies in the industry as guides, sought out a more independent approach in order to develop their own professional opportunities and those of fellow working partners. 
+<p>Bless Africa Tours and Safaris is registered under the Tanzania Company Act, 2002. The company was founded by Godbless who, after years of working for other established companies in the industry as guides, sought out a more independent approach in order to develop their own professional opportunities and those of fellow working partners. 
 <p>Bless Africa Tours and Safaris aims to offer unique holiday packages which are both inspiring to travellers, while at the same time bringing benefits to the local people, wildlife and environment. 
 <p>Holidays with Bless Africa Tours and Safaris can be tailor-made and the Team are able to offer trips covering the whole of Tanzania. The company specialises in Trekking experiences on Mount Kilimanjaro and Mount Meru, Safaris to Tanzania’s outstanding National Parks including Taringire, Serengeti, Ngorongoro Crater, Lake Manyara and Arusha, and  Beach Holidays to the beautiful Tanzanian coastal resorts of Pangani, Bagamoyo and the island of Zanzibar. 
 <p>If our clients would like to experience even more of Africa, , or to explore other activities such as cycling, the Kilimanjaro Marathon, the Team can offer a free consultation.</p>
@@ -14,7 +14,7 @@
 	<article class="span3">
 		<ul class="thumbnails">
 			<li class="thumbnail">
-					<img alt="New-governor-mark-capes" src="http://placehold.it/260x220" title="Mark Capes, Governor of St. Helena"> 
+					<%= image_tag  "http://placehold.it/260x220", alt: 'Godbless Swai', title: 'Godbless Swai' %> 
 			</li>
 		</ul>
 		<h3>Godbless Emil Swai</h3>
@@ -27,10 +27,7 @@
 	</article> 
 	
 	<article class="span6">
-		<h2 class="page-title">Thank you for your interest</h2>
-		<p>Godbless Emil Swai is the founder and managing Director of  Bless Africa Tours and Safaris. He is also the lead guide on the mountain trips. With the expert support and guidance from Godblesss your holiday adventure in Tanzania will be unforgettable.</p>
-		<p>Bless Africa Tours and Safaris specialise in Mountain climbs, Wildlife Safari, Eco Tours and Beach holidays within Tanzania. The company is committed to operating within the highest standard possible in Tanzania.  The safety and pleasure of our clients is the greatest priority for Bless Africa Tours and Safaris.</p>
-		<p>Godbless has been a guide on Mount Kilimanjaro for over 6 years. He has led trips up the Mountain in conjunction with UK charities and companies.  He is certified and licensed with the Kilimanjaro National Parks Authority (KINAPA), and has been trained in first aid. In addition Godbless has developed his knowledge about the local  flora and fauna and the wildlife that may be encountered on safari. Both his extensive experience and education will ensure a safe, knowledgeable and enjoyable experience whether it be an expedition to the summit of Mount Kilimanjaro, Safari or trip to one of Tanzania’s beautiful beaches.</p>
+		<%= markdown @gb.about %>
 		<br>
 	</article>
 </div>
@@ -39,7 +36,7 @@
 	<article class="span3">
 		<ul class="thumbnails">
 			<li class="thumbnail">
-					<img alt="New-governor-mark-capes"src="http://placehold.it/260x220" title="Mark Capes, Governor of St. Helena"> 
+					<%= image_tag  "jofringe.jpg", alt: 'Joanne Cutts', title: 'Joanne Cutts' %> 
 			</li>
 		</ul>
 		<h3>Joanne Cutts</h3>
@@ -52,7 +49,6 @@
 		</p>
 	</article> 
 	<article class="span6">
-		<h2 class="page-title">Welcome to Bless Africa tours</h2>
-		<p>Joanne Cutts is our colleague in the UK. She has travelled extensively with the company, climbing Kilimanjaro in 2010, going on safari in 2011 and visiting the beach in 2012. She is very happy to speak with prospective clients who have questions or queries about their trip to Tanzania, or to share her experiences.</p>
+		<%= markdown @jo.about %>
 	</article>
 </div>

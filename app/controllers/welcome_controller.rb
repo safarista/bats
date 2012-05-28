@@ -4,6 +4,8 @@ class WelcomeController < ApplicationController
 
   def about_us
     # authorize! :static_page, :about_us 
+    @jo = User.try(:find, 2)
+    @gb = User.try(:find, 3)
     @title = 'About Bless Africa Safaris and Tours'
     
   end
