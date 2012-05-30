@@ -51,96 +51,40 @@
 						
 						<!-- .dropdown -->
 						<ul class="nav pull-right">
-							<li class="dropdown">
+							<li>
 							<% if !logged_in? %>	
-							  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login <b class="caret"></b></a>
-							  <ul class="dropdown-menu">
-							    <li>
-										<%= form_tag sessions_path, :method => :post, :class => 'well' do %>
-											<h6>Login:</h6>
-											<div class="control-group">
-												<div class="controls">
-												  <%= text_field_tag :username, nil, placeholder: 'Username', required: true, autofocus: true %>
-												</div>
-											</div>
-											<div class="control-group">
-												<div class="controls">
-												  <%= password_field_tag :password, nil, placeholder: 'Password', required: true %>
-													<p class="help-block"><small><a href="#">Forgot Password?</a></small></p>
-												</div>
-											</div>
-											<div class="form-actions">
-												<%= submit_tag "Login", class: 'btn btn-primary' %>
-											</div> 
-										<% end %>
-									</li>
-							  </ul>
+							  <%= link_to "Login", :login, title: 'Login' %>
 							<% else %>
-							  <%= link_to "Logout", logout_path, title: 'Log out' %>
+							  <%= link_to "Logout", :logout, title: 'Log out' %>
 							<% end %>
 							</li>
 							<li class="divider-vertical"></li>
-							<li class="dropdown">
+							
 							<% if !logged_in? %>
-							  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sign up <b class="caret"></b></a>
-							  <ul class="dropdown-menu">
-									<li>
-										<%= form_for User.new, :html => { :class => 'well' } do |f| %>
-									  	<h6>Enter your details to register:</h6>
-											<div class="control-group">
-									  	  <div class="controls">
-									  	    <%= f.text_field :full_name, autofocus: true, placeholder: 'Full names' %>
-									  	  </div>
-									  	</div>
-									  	<div class="control-group">
-									  	  <div class="controls">
-									  	    <%= f.text_field :username, placeholder: 'Username(8 or more)' %>
-									  	  </div>
-									  	</div>
-									  	<div class="control-group">
-									  	  <div class="controls">
-									  	    <%= f.email_field :email, placeholder: 'Email' %>
-									  	  </div>
-									  	</div>
-									  	<div class="control-group">
-									  	  <div class="controls">
-									  	    <%= f.password_field :password, placeholder: 'Password' %>
-									  	  </div>
-									  	</div>
-									  	<div class="control-group">
-									  	  <div class="controls">
-									  	    <%= f.password_field :password_confirmation, placeholder: 'Confirm Password' %>
-									  	  </div>
-									  	</div>
-                    	
-									  	<div class="form-actions">
-									  	  <%= f.submit nil, :class => 'btn btn-primary' %>
-											</div>
-									<% end %>
-									</li>
-									
+							<li><%= link_to "Sign up", :signup, title: 'Sign up' %></li>
+							
 							<% else %>
-									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.username %> <b class="caret"></b></a>
-										<ul class="dropdown-menu">
-											<li><%= link_to "My Account", user_path(current_user) %></li>
-											<% if can? :access, @user %>
-											<li class="divider-horizontal"></li>
-											<li><%= link_to "Manage Users", users_path %></li>
-											<% end %>
-										</ul>
-									</li>
-							  </ul>
-							<% end %>	
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.username %> <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><%= link_to "My Account", user_path(current_user) %></li>
+									<% if can? :access, :users %>
+									<li class="divider-horizontal"></li>
+									<li><%= link_to "Manage Users", users_path %></li>
+									<% end %>
+								</ul>
 							</li>
 						</ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div>
-    </div>
-			
-		<% flash.each do |name, msg| %>
-			<div class="container">
-				<%= content_tag :div, msg, :id => "flash_#{name}", :class => "alert alert-#{name}" %>
-			</div>
-		<% end %>
+						<% end %>	
+					</li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+	</div>
+	</div>
+		
+<% flash.each do |name, msg| %>
+	<div class="container">
+		<%= content_tag :div, msg, :id => "flash_#{name}", :class => "alert alert-#{name}" %>
+	</div>
+<% end %>

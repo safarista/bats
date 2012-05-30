@@ -7,9 +7,13 @@
   </div>
 	<% if @photo.name? %>
 	<div class="control-group">
-    <%= f.label :name, 'Edit Photo', class: 'control-label' %>
+    <%= f.label :name, 'Photo', class: 'control-label' %>
     <div class="controls">
       <%= image_tag @photo.name_url(:thumb) %>
+			<br>
+			<label class="checkbox">
+			<%= f.check_box :remove_name %> Remove this image?
+			</label>
     </div>
   </div>
 	<% else %>

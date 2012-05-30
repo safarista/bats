@@ -69,7 +69,8 @@ class PhotosController < ApplicationController
   # DELETE /photos/1
   # DELETE /photos/1.json
   def destroy
-    @photo = Photo.find(params[:id])
+    @photo = @album.photos.find(params[:id])
+    @photo.remove_name
     @photo.destroy
 
     respond_to do |format|

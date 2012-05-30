@@ -18,12 +18,16 @@
       <%= f.text_field :full_name, required: true, autofocus: true, :class => 'text_field' %>
     </div>
   </div>
+	
+	<% if @user.new_record? %>
   <div class="control-group">
     <%= f.label :username, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :username, required: true, :class => 'text_field' %>
     </div>
   </div>
+	<% end %>
+	
   <div class="control-group">
     <%= f.label :email, :class => 'control-label' %>
     <div class="controls">
