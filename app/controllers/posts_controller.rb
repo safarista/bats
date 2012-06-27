@@ -63,9 +63,7 @@ class PostsController < ApplicationController
   # PUT /posts/1
   # PUT /posts/1.json
   def update
-    @post           = Post.try(:find, params[:id])
-    @post.published = Time.now # if !params[:post][:published].blank?
-    
+    @post = Post.try(:find, params[:id])    
 
     respond_to do |format|
       if @post.update_attributes(params[:post])

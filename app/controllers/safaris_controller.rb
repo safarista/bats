@@ -2,8 +2,8 @@ class SafarisController < ApplicationController
   # # Filters and Authorization
   skip_before_filter :require_login, :only => [:index, :show]
   
-  # load_and_authorize_resource :safari # no customization needed here
-  # load_and_authorize_resource :destination, :through => :safari
+  load_and_authorize_resource :safari # no customization needed here
+  load_and_authorize_resource :destination, :through => :safari
   # before_filter :authorize_parent
   
   # GET /safaris

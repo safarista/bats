@@ -33,7 +33,7 @@
     <table class="table">
     <tr>
     	<td class="span2">
-				<p><%= link_to comment.commenter, comment.comment_url? ? comment.comment_url : '#', title: comment.commenter, target: '_blank' %><br>
+				<p><%= link_to comment.commenter, comment.comment_url? ? comment.comment_url : 'http://beachboy.herokuapp.com/', title: comment.commenter, target: '_blank' %><br>
 				<small><%= distance_of_time_in_words comment.created_at, Time.now %> ago</small></p>
 			</td>
 			<td><%= markdown comment.content %></td>

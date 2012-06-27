@@ -16,7 +16,7 @@
   <div class="control-group">
     <%= f.label :title, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :title, required: true, :class => 'span6' %>
+      <%= f.text_field :title, required: true, autofocus: true, :class => 'span6' %>
     </div>
   </div>
 
@@ -26,13 +26,14 @@
       <%= f.text_area :content, :class => 'span7', rows: 9, required: true %>
     </div>
   </div>
-
+	<!--  === Disable until I can fix it ===
   <div class="control-group">
     <%= f.label :published, :class => 'control-label' %>
     <div class="controls">
       <%= f.check_box :published %>
     </div>
   </div>
+	-->
   <div class="control-group">
     <%= f.label :ban_comments, :class => 'control-label' %>
     <div class="controls">
