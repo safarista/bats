@@ -81,8 +81,13 @@ window.onmousemove=function(event)
 		  <!-- Carousel items -->
 		  <div class="carousel-inner">
 			<% if @album.photos %>
-			  <% for photo in @album.photos %>
-			    <div class="item"><%= image_tag photo.name? ? photo.name_url : 'http://placehold.it/800x400', title: photo.caption, width: "100%" %></div>
+			  <% @album.photos.each do |photo| %>
+			    <div class="item">
+						<%= image_tag photo.name? ? photo.name_url : 'http://placehold.it/800x400', 
+								title: photo.caption, 
+								width: "100%" 
+						%>
+					</div>
 			  <% end %>
 			<% else %>
 			  <div class=" item"><%= image_tag "http://placehold.it/800x400", title: 'This is the slideshow place holder', width: "100%" %></div>

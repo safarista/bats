@@ -58,12 +58,12 @@ ActiveRecord::Schema.define(:version => 20120526225413) do
 
   create_table "destinations", :force => true do |t|
     t.string   "title"
-    t.text     "price",            :limit => 255
+    t.text     "price"
     t.text     "description"
     t.integer  "destineable_id"
     t.string   "destineable_type"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "friendly_id_slugs", :force => true do |t|

@@ -8,7 +8,7 @@ development:
   encoding: unicode
   database: bats_development
   pool: 5
-  username: safarista
+  username: the-crab
   password: 
 
 # Warning: The database defined as "test" will be erased and
@@ -19,5 +19,5 @@ test:
   encoding: unicode
   database: bats_test
   pool: 5
-  username: safarista
+  username: the-crab
   password:
