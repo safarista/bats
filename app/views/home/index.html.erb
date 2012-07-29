@@ -1,82 +1,9 @@
-
-<!--====================== for checking viewport======================= -->
-<!--
-<div id="viewportwidth" class="alert alert-success">
-	
-</div>
-<div id="resolutionwidth" class="alert alert-info">
-	
-</div>
-
-
-<script type="text/javascript">
-function getViewportWidth()
-{
-       if (window.innerWidth)
-       {
-               return window.innerWidth;
-       }
-       else if (document.body && document.body.offsetWidth)
-       {
-               return document.body.offsetWidth;
-       }
-       else
-       {
-               return 0;
-       }
-}
-
-function getViewportHeight()
-{
-       if (window.innerHeight)
-       {
-               return window.innerHeight;
-       }
-       else if (document.body && document.body.offsetHeight)
-       {
-               return document.body.offsetHeight;
-       }
-       else
-       {
-               return 0;
-       }
-}
-
-var tellMeTheSizes=function()
-{
-       document.getElementById("viewportwidth").innerHTML = getViewportWidth() + "px";
-       document.getElementById("viewportheight").innerHTML = getViewportHeight() + "px";
-       document.getElementById("resolutionheight").innerHTML = screen.height + "px";
-       document.getElementById("resolutionwidth").innerHTML = screen.width + "px";
-}
-
-window.onload=function()
-{
-       tellMeTheSizes();
-}
-
-window.onresize=function()
-{
-       tellMeTheSizes();
-}
-
-window.onmousemove=function(event)
-{
-       ev = event || window.event;
-       document.getElementById("mousetop").innerHTML = ev.pageY + "px";
-       document.getElementById("mouseleft").innerHTML = ev.pageX + "px";
-}
-</script>
-
--->
-
-
 <div class="row">
-	<div class="span2 balance-slider">
+	<!-- <div class="span2 balance-slider">
 		<p>&nbsp;</p>
 		<p>&nbsp;</p>
-	</div>
-	<article class="span8">
+	</div> -->
+	<article class="span12">
 		<div id="myCarousel" class="carousel slide">
 		  <!-- Carousel items -->
 		  <div class="carousel-inner">
@@ -101,17 +28,17 @@ window.onmousemove=function(event)
 		<!--/ Carousel -->
 	</article>
 	
-	<div class="span2 balance-slider">
+	<!-- <div class="span2 balance-slider">
 		<p>&nbsp;</p>
 		<p>&nbsp;</p>
-	</div>
+	</div> -->
 </div><!--/ row -->
 <hr>
 
 <header class="jumbotron masthead">
 	<div class="inner">
 		<h1>Bless Africa Tours and Safaris</h1>
-		<p><strong>We</strong> are a locally owned Travel company based in Tanzania. The company specialises in providing organised Treks, Wildlife Safaris, Beach Trips and Day Trips from the town of Moshi, set in the foothills of Mount Kilimanjaro. </p>
+		<p>Bless Africa Tours and Safaris is a locally owned Travel company based in Tanzania. The company specialises in providing organised Treks, Wildlife Safaris, Beach Trips and Day Trips from the town of Moshi, set in the foothills of Mount Kilimanjaro. </p>
 		<p class="download-info">
 			<%= link_to  "Mountain Trekking", :treks, class: "btn btn-primary btn-large" %>
 			<%= link_to  "Wildlife Safaris", :safaris, class: "btn btn-primary btn-large" %>
@@ -140,7 +67,7 @@ window.onmousemove=function(event)
 <div class="marketing">
 	<div class="row">
 		<div class="span4">
-			<h2><i class="icon icon-user icon-large "></i> About us</h2>
+			<h2><i class="icon icon-user icon-large "></i>&nbsp; About us</h2>
 			<p>Bless Africa Tours  and safaris is a locally owned Travel company based in Moshi. With over 6 years experience in the Trek and Travel industry and extensive local knowledge and links the company strives to add something extra to a visit to Tanzania.</p>
 		</div>
 		<div class="span4">

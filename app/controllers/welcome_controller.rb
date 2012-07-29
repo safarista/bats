@@ -6,7 +6,7 @@ class WelcomeController < ApplicationController
     # authorize! :static_page, :about_us 
     @jo = User.try(:find, 2)
     @gb = User.try(:find, 3)
-    @title = 'About Bless Africa Safaris and Tours'
+    @title = 'About Bless Africa Tours and Safaris'
     
   end
 
@@ -42,5 +42,9 @@ class WelcomeController < ApplicationController
   def kit_hire
     # authorize! :static_page, :kit_hire
     @title = "Trekking and camping Kit hire and providers"
+  end
+  
+  def terms_and_conditions
+    @title = 'Privacy and Terms of service'
   end
 end

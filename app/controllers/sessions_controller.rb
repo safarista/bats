@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
     respond_to do |format|
       if @user = login(params[:username],params[:password])
         @user.ip_address_info = request.remote_ip
+        
         format.html { redirect_back_or_to(:root, :notice => 'Login successful.') }
         format.xml { render :xml => @user, :status => :created, :location => @user }
       else

@@ -48,6 +48,7 @@ Bats::Application.routes.draw do
   match 'kit_hire'              => 'welcome#kit_hire', as: :kit_hire 
   match 'itineraries'           => 'welcome#itineraries', as: :itineraries
   match 'important_information' => 'welcome#important_information', as: :important_information
+  match 'terms_and_conditions'  => 'welcome#terms_and_conditions', as: :terms_and_conditions
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

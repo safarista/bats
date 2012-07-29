@@ -22,8 +22,11 @@
     <link href="images/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114"> -->
   </head>
   <body>
-
-    <div class="navbar navbar-fixed-top">
+		<header class="container">
+			<div class="row">
+				<p style="text-align:center"> <%= link_to image_tag("bless-africa-tours-logo.png", alt: 'Bless Africa Tours', title: 'Bless Africa Tours'), :root, title: 'Bless Africa Tours' %> <br /> </p>
+			</div>
+    <div class="navbar navbar">
       <div class="navbar-inner">
         <div class="container">
           <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
@@ -82,6 +85,7 @@
 		</div>
 	</div>
 	</div>
+</header>
 		
 <% flash.each do |name, msg| %>
 	<div class="container">
