@@ -16,7 +16,16 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <%= javascript_include_tag "application" %>
-
+		<script type="text/javascript">
+		(function($) {
+			$("a[rel=popover]").popover();
+			$(".tooltip").tooltip();
+			$("a[rel=tooltip]").tooltip();
+			$(".carousel").carousel();
+			$('.dropdown-toggle').dropdown();
+		}).call(this);
+		</script>
+		
 		<!-- ====Google Analytics==== -->
 		<% if Rails.env.production? %>
 		<script type="text/javascript">

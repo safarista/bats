@@ -21,11 +21,3 @@ test:
   pool: 5
   username: the-crab
   password:
-
-# production:
-#   adapter: postgresql
-#   encoding: unicode
-#   database: bats_development
-#   pool: 5
-#   username: the-crab
-#   password:
