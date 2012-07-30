@@ -11,3 +11,189 @@
  *= require_self
  *= require_tree .
 */
+
+
+/*// Set the correct sprite paths
+$iconSpritePath: image-path('glyphicons-halflings.png');
+$iconWhiteSpritePath: image-path('glyphicons-halflings-white.png');
+
+//$navbarBackground: #555;
+//$navbarBackgroundHighlight: #888;
+//$navbarText: #eee;
+//$navbarLinkColor: #eee;
+
+@import "bootstrap";
+body { padding-top: 10px; }
+
+@import "bootstrap-responsive";
+
+.navbar .brand {
+  color: #fff;
+}
+// .span3{margin-left:20px;width:220px;}
+// .masthead {
+// padding-top: 36px;
+// margin-bottom: 72px;
+// }
+
+.footer {
+	margin-top: 45px;
+	padding: 35px 0 36px;
+	border-top: 1px solid #E5E5E5;
+}
+.jumbotron {
+position: relative;
+}
+
+.masthead h1 {
+margin-bottom: 18px;
+}
+
+.jumbotron h1 {
+margin-bottom: 9px;
+font-size: 81px;
+font-weight: bold;
+letter-spacing: -1px;
+line-height: 1;
+}
+.masthead p {
+margin-left: 5%;
+margin-right: 5%;
+font-size: 30px;
+line-height: 36px;
+}
+
+.masthead h1, .masthead p {
+text-align: center;
+}
+.jumbotron p{margin-bottom:18px; font-weight:300;}
+
+.jumbotron .btn-large {
+font-size: 20px;
+font-weight: normal;
+padding: 14px 24px;
+margin-right: 10px;
+-webkit-border-radius: 6px;
+-moz-border-radius: 6px;
+border-radius: 6px;
+}
+
+.bs-links {
+margin: 36px 0;
+}
+
+.quick-links {
+min-height: 30px;
+margin: 0;
+padding: 5px 20px;
+list-style: none;
+text-align: center;
+overflow: hidden;
+}
+
+.quick-links:first-child {
+min-height: 0;
+}
+
+.quick-links li {
+display: inline;
+margin: 0 8px;
+color: #999;
+}
+
+.marketing .row {
+	margin-bottom: 9px;
+}
+.marketing .bs-icon {
+	float: left;
+	margin: 7px 10px 0 0;
+	opacity: .8;
+}
+.marketing h2 {
+	font-size: 22px;
+}
+.marketing h2, .marketing h3 {
+	font-weight: 300;
+}
+
+// @media (max-width: 1015px) amd (min-width: 980px){
+// 	.jumbotron h1{
+// 		font-size: 42px;
+// 	}
+// 	.jumbotron p {
+// 		margin-right: 0;
+// 		margin-left: 0;
+// 		font-size:18px;
+// 		line-height:24px;
+// 	}
+// 	.jumbotron .btn {
+// 	margin-bottom: 10px;
+// 	font-size: 18px;
+// 	padding: 10px 14px;
+// 	margin: 0 auto 10px;
+// 	}
+// }
+
+@media (max-width: 980px) and (min-width: 768px) {
+	.jumbotron h1{
+		font-size: 52px;
+	}
+	.jumbotron p {
+		margin-right: 0;
+		margin-left: 0;
+		font-size:18px;
+		line-height:24px;
+	}
+	.jumbotron .btn {
+	margin-bottom: 10px;
+	font-size: 18px;
+	padding: 10px 14px;
+	margin: 0 auto 10px;
+	}
+	.balance-slider{
+		display:none;
+	}
+	
+}
+
+@media (max-width: 768px) and (min-width: 480px) {
+	.jumbotron h1{
+		font-size: 54px;
+	}
+	.jumbotron p {
+		margin-right: 0;
+		margin-left: 0;
+		font-size:18px;
+		line-height:24px;
+	}
+	.jumbotron .btn {
+	margin-bottom: 10px;
+	}
+	.balance-slider{
+		display:none;
+	}
+}
+
+@media (max-width: 480px){
+	.jumbotron h1{
+		font-size: 35px;
+		margin-right: 0;
+	}
+	.jumbotron p{
+		margin-right:0;
+		margin-left:0;
+		font-size:16px;
+		line-height:24px;
+	}
+	.jumbotron .btn {
+		display: block;
+		font-size: 16px;
+		padding: 10px 14px;
+		margin: 0 auto 10px;
+	}
+	.jumbotron h1, .jumbotron p{
+		text-align:center;
+	}
+}
+
+.field_with_error input{border: 1px dashed red;}*/

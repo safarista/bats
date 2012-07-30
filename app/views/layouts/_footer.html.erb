@@ -16,11 +16,9 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <%= javascript_include_tag "application" %>
-		<script type="text/javascript">
-		  $(".dropdown-toggle").dropdown()
-		</script>
-		<% if Rails.env.production? %>
+
 		<!-- ====Google Analytics==== -->
+		<% if Rails.env.production? %>
 		<script type="text/javascript">
 
 		  var _gaq = _gaq || [];
