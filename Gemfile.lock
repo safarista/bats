@@ -175,7 +175,7 @@ DEPENDENCIES
   bootstrap-sass
   cancan!
   carrierwave
-  ckeditor (= 3.7.1)
+  ckeditor (~> 3.7.1)
   coffee-rails (~> 3.2.1)
   fog
   friendly_id

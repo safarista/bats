@@ -55,4 +55,4 @@ gem 'mini_magick'
 # Pagination and scrolling log articles
 gem 'kaminari'
 gem 'simple_form'
-gem 'ckeditor', '3.7.1'
+gem 'ckeditor', '~> 3.7.1'
