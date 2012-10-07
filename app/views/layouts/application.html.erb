@@ -11,16 +11,17 @@
 							<div class="well sidebar-nav">
                 <ul class="nav nav-list">
                   <li class="nav-header">Important links</li>
-                  <li><%= link_to "Accommodation", :accommodation, title: 'Accommodation information' %></li>
-                  <li><%= link_to "Important information", :important_information, title: 'Important information for tourists' %></li>
-									<li><%= link_to "Guides and porters", :guides_and_porters, title: 'Our tour guides and porters' %></li>
-                  <li><%= link_to "About Tanzania", :about_tanzania, title: 'About Tanzania' %></li>
-									<li><%= link_to "Contact us", :contact_us, title: 'Contact Us' %></li> 
-									<li><%= link_to "Newsletter", '#:newsletters', title: 'Subscribe to our newsletter' %></li>
-                  <li><%= link_to "About us", :about_us, title: 'About us' %></li>
-                  <li><%= link_to "Galleries", :albums, title: 'Photo galleries' %></li>
-									<li><%= link_to "Blog", :posts, title: 'Read the blog' %></li>
-									
+                  <!-- STATIC PAGES -->
+                  <% static_pages.each do |page| %>
+                    <li><%= link_to page.name, page, title: page.name %></li>
+                    <% end -%>
+
+                  <li><%= link_to "Blog", :posts, title: 'Read the blog' %></li> 
+                  <% if can? :access, :pages %>
+                  <li><%= link_to "Subscribe to Newsletter", :newsletters, title: 'Subscribe to our newsletter' %></li>
+                  <li><%= link_to "All Pages", :pages %></li>
+                  <% end -%>
+                  <li><%= link_to "Booking", :bookings, title: 'Booking' %></li>
                 </ul>
               </div><!--/.well -->
             </div><!--/span-->

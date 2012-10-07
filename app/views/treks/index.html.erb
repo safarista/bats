@@ -1,11 +1,10 @@
 <%- model_class = Trek.new.class -%>
-<h1><%=t '.title', :default => 'Trekking' %></h1>
+<h1><%=t '.title', :default => 'Trekking' %> <small>routes and destinations</small></h1>
 
 <% @treks.each do |trek| %>
 	<article>
 		<h2><%= link_to trek.title, trek_path(trek), title: trek.title %></h2>
-		<%= markdown trek.description.truncate(500) %>
-		
+		<%= markdown trek.description.truncate(1500) %>
 	</article>
 	<hr>
 <% end %>

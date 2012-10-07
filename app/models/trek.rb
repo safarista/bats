@@ -9,7 +9,7 @@ class Trek < ActiveRecord::Base
   # NestingForms and Resources
   accepts_nested_attributes_for :destinations, allow_destroy: true, reject_if: :all_blank
   
-  # # SEO search friendly URLS with FriendlyId
+  ## SEO search friendly URLS with FriendlyId
   extend FriendlyId
   friendly_id :title, use: :history
   

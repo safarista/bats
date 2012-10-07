@@ -34,7 +34,7 @@
   <div class="control-group">
     <%= f.label :content, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_area :content, required: true, placeholder: 'Type your comment here', :class => 'span6', rows: 4 %>
+      <%= f.cktext_area :content, toolbar: 'Basic', input_html: { required: true, class: 'span6', rows: 4 } %>
     </div>
   </div>
 

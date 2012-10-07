@@ -1,4 +1,4 @@
-<%- model_class = @post.class -%>
+<% model_class = @post.class %>
 <h1><%=t '.title', :default => @post.title, title: @post.title %></h1>
 
 <p><small><%= time_tag @post.published, format: '%m %b %Y', pubdate: true if @post.published? %> <b>By:</b> <%= link_to @post.user.full_name, user_path(@post.user), title: @post.user.full_name %></small></p>
@@ -93,7 +93,7 @@
 		  <div class="control-group">
 		    <%= f.label :content, 'Your comment', :class => 'control-label' %>
 		    <div class="controls">
-		      <%= f.text_area :content, required: true, placeholder: 'Type your comment here', :class => 'span6', rows: 5 %>
+		      <%= f.text_area :content, placeholder: 'Enter comment here', rows: 5, class: 'span6 comment_content' %>
 		    </div>
 		  </div>
 		

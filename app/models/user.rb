@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   
   # # Validations
   validates :full_name, :username, presence: true
-  validates :username, length: { in: 8..15 }
+  validates :username, uniqueness: true, length: { in: 8..15 }
   validates :email, presence: true,
                     uniqueness: { :case_sensitive => false }, 
                     format: { with: /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i, 
@@ -36,5 +36,14 @@ class User < ActiveRecord::Base
   # # SEO search friendly URLS with FriendlyId
   extend FriendlyId
   friendly_id :full_name, use: :history
+
+  # Filters
+  before_save :fix_username
+
+  private
+
+  def self.fix_username
+    return username.downcase.strip.squeeze.gsub(/\s/, '_') unless !username_changed?
+  end
   
 end

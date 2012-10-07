@@ -18,12 +18,12 @@
 <% end %>
 <br>
 
-<article class="">
+<article class="clearfix">
 <% if !@beach.destinations.blank? %>
 	<h6>Destinations</h6>
 	<hr>
   <% for bc in @beach.destinations %>
-    <h3><%= link_to bc.title, beach_destination_path(@beach, bc), title: bc.title %></h3>
+    <h3><%= link_to bc.title, beach_destination_path(@beach, bc), title: bc.title %> <%= link_to 'Prices From $200/day, Book now!', beach_destination_path(@beach, bc), class: 'btn btn-large btn-warning pull-right' %></h3>
 		<%= markdown bc.description.truncate(300) %>
 		<p><%= link_to 'Read more...', beach_destination_path(@beach, bc), class: 'btn' %></p>
   <% end %>
@@ -51,13 +51,13 @@
 	  <div class="control-group">
 	    <%= f.label :price, 'Price breakdown', :class => 'control-label' %>
 	    <div class="controls">
-	      <%= f.text_area :price, :class => 'span6', rows: 6 %>
+	      <%= f.cktext_area :price, toolbar: 'Basic', :class => 'span6', rows: 6 %>
 	    </div>
 	  </div>
 	  <div class="control-group">
 	    <%= f.label :description, class: 'control-label' %>
 	    <div class="controls">
-	      <%= f.text_area :description, class: 'span6', rows: 8 %>
+	      <%= f.cktext_area :description, toolbar: 'Basic', class: 'span6', rows: 8 %>
 	    </div>
 	  </div>
 	

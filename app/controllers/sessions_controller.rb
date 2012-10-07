@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  # skip_authorization_check except: :destroy
+  # load_and_authorize_resource only: [:new, :create]
   skip_before_filter :require_login, :only => [:new, :create]
   def new
     @user = User.new

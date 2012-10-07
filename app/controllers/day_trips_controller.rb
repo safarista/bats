@@ -4,6 +4,7 @@ class DayTripsController < ApplicationController
   # GET /day_trips.json
   def index
     @day_trips = DayTrip.all
+    @title = 'One Day trips and short holidays'
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,6 +16,7 @@ class DayTripsController < ApplicationController
   # GET /day_trips/1.json
   def show
     @day_trip = DayTrip.find(params[:id])
+    @title = "#{@day_trip.title} trips"
 
     respond_to do |format|
       format.html # show.html.erb

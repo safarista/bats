@@ -1,16 +1,27 @@
 class DestinationsController < ApplicationController
+  skip_before_filter :require_login, only: [:index, :show]
   before_filter :find_destineable
   respond_to :html
+  # skip_authorization_check only: [:index, :show] #CanCan 1.6.x
+  load_and_authorize_resource :user
+  load_and_authorize_resource :safari
+  load_and_authorize_resource :trek
+  load_and_authorize_resource :beach
+  load_and_authorize_resource :day_trip
+  load_and_authorize_resource :destination, through: [:safari, :trek, :beach, :day_trip]
+  
   # GET /destinations
   # GET /destinations.json
   def index
     @destinations = @destineable.destinations
+    @title = "Tour routes and destinations"
   end
   # 
   # # GET /destinations/1
   # # GET /destinations/1.json
   def show
     @destination  = @destineable.destinations.find(params[:id])
+    @title = "#{@destination.title} route"
     # @destination = Destination.find(params[:id])
   end
   # 

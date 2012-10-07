@@ -8,12 +8,12 @@ $iconWhiteSpritePath: image-path('glyphicons-halflings-white.png');
 //$navbarLinkColor: #eee;
 
 @import "bootstrap";
-body { padding-top: 10px; }
+body { padding-top: 10px; font-family:'Open sans', sans-serif;}
 
 @import "bootstrap-responsive";
 
 .navbar .brand {
-  color: #fff;
+  //color: #fff;
 }
 // .span3{margin-left:20px;width:220px;}
 // .masthead {

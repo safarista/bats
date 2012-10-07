@@ -4,10 +4,11 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     if can? :access, :posts
-      @posts = Post.order("posts.published DESC")
+      @posts = Post.order("posts.created_at DESC")
     else
       @posts = Post.where("posts.published IS NOT NULL" ).order("posts.published DESC")
     end
+    @title = 'Blog'
 
     respond_to do |format|
       format.html # index.html.erb
@@ -18,7 +19,8 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
-    @comments = @post.comments
+    @title = @post.title
+    @comments = @post.comments.reverse
     @comment = Comment.new
 
     respond_to do |format|

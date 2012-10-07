@@ -15,10 +15,10 @@ module ApplicationHelper
   
   def title
     base_title = 'Bless Africa Tours and Safaris'
-    if @title.nil?
-      base_title
-    else
-      "#{@title} | #{base_title}"
-    end
+    @title.nil? ?  base_title : "#{@title}"
+  end
+
+  def static_pages
+    @static_pages = Page.all
   end
 end

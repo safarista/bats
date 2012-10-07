@@ -7,7 +7,8 @@ class Ability
       if user.admin?
         can :access, :all
       else
-        can :read, [:home, :albums, :photos, :treks, :beaches, :safaris, :day_trips, :posts, :comments]
+        can :create, :bookings
+        can :read, [:home, :albums, :photos, :treks, :beaches, :safaris, :day_trips, :posts, :comments, :pages]
         can :create, [:comments, :users, :sessions]
         can :destroy, :sessions
         can :read, :users 

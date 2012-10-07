@@ -9,7 +9,7 @@
   <div class="control-group">
     <%= f.label :description, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_area :description, :class => 'span6', rows: 9 %>
+      <%= f.cktext_area :description, toolbar: 'Basic', input_html: { :class => 'span6', rows: 9} %>
     </div>
   </div>
 

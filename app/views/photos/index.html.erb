@@ -15,7 +15,7 @@
   <!-- Carousel items -->
   <div class="carousel-inner">
 	<% @photos.each do |photo| %>
-    <div class="item">
+	<div class="item">
 			<%= link_to image_tag(photo.name? ? photo.name_url : "http://placehold.it/260x180", width: "100%"), album_photo_path(@album, photo) %>
 			<div class="carousel-caption">
 				<h4><%= @album.title %></h4>
@@ -28,3 +28,26 @@
   <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
   <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 </div>
+
+<% if can? :manage, @photos %>
+<ul class="thumbnails">
+	<% @photos.each do |photo| %>
+		<li class="span3">
+		<%= link_to image_tag(photo.name? ? photo.name_url(:thumb) : "http://placehold.it/260x180"), album_photo_path(@album, photo), class: "thumbnail" %>
+		<br>
+		<p><input type="url" value="<%= photo.name? ? photo.name_url(:thumb) : 'http://placehold.it/260x180' %> " select="select" class="image-link"></p>
+		</li>
+	<% end %>
+</ul>
+<% end %>
+
+<!-- JS HELP WITH SELECTING THE URL -->
+<script>
+	$(document).ready( function() {
+		$('input [type="url"]').focus();
+
+		$('.image-link').click( function() {
+			$(this).focus().select();
+		}).click();
+	});
+</script>

@@ -4,6 +4,7 @@ class TreksController < ApplicationController
   # GET /treks.json
   def index
     @treks = Trek.all
+    @title = "Trekking routes and destinations"
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,6 +16,7 @@ class TreksController < ApplicationController
   # GET /treks/1.json
   def show
     @trek = Trek.find(params[:id])
+    @title = "#{@trek.title} route"
 
     respond_to do |format|
       format.html # show.html.erb

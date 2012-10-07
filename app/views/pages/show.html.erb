@@ -1,0 +1,12 @@
+<h1>
+	<%= @page.name %> 
+	<% if can? :manage, :pages %>
+	<span class="btn-group pull-right"><%= link_to "Edit page", edit_page_path(@page), class: 'btn btn-primary btn-small' %>
+		<%= link_to "Delete", @page, class: 'btn btn-danger btn-small', method: :delete, data: {confirm: 'Are you sure!'} %>
+	</span>
+	<% end -%>
+</h1>
+
+<%= markdown @page.content %>
+
+<br>

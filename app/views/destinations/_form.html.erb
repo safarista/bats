@@ -6,15 +6,15 @@
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :price, :class => 'control-label' %>
+    <%= f.label :description, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_area :price, :class => 'span6', rows: 6 %>
+      <%= f.cktext_area :description, toolbar: 'Full', class: 'span8', rows: 15 %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :description, :class => 'control-label' %>
+    <%= f.label :price, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_area :description, class: 'span8', rows: 15 %>
+      <%= f.cktext_area :price, toobar: 'Basic', class: 'span8', rows: 15 %>
     </div>
   </div>
 

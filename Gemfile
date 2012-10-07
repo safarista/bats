@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.6'
+gem 'rails', '3.2.8'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -55,3 +55,4 @@ gem 'mini_magick'
 # Pagination and scrolling log articles
 gem 'kaminari'
 gem 'simple_form'
+gem 'ckeditor', '3.7.1'

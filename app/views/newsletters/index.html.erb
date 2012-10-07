@@ -1,0 +1,23 @@
+<h1>All newsletters <%= link_to 'New Newsletter', new_newsletter_path, class: 'pull-right btn btn-primary' %></h1>
+
+<table class="table table-stripped">
+  <tr>
+    <th>ID#</th>
+    <th>Title</th>
+    <th>Delivered On</th>
+    <th></th>
+  </tr>
+
+<% @newsletters.each do |newsletter| %>
+  <tr>
+    <td><%= newsletter.id %></td>
+    <td><%= newsletter.title %></td>
+    <td><%= newsletter.delivered_at %></td>
+    <td class="btn-group">
+      <%= link_to 'Deliver', deliver_newsletter_path(newsletter), method: :post, class: 'btn btn-waring' %>
+      <%= link_to 'View', newsletter, class: 'btn btn-primary' %> 
+      <%= link_to 'Edit', edit_newsletter_path(newsletter), class: 'btn btn-success' %> <%= link_to 'Destroy', newsletter, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+    </td>
+  </tr>
+<% end %>
+</table>

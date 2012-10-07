@@ -22,7 +22,7 @@
 	<h6>Destinations</h6>
 	<hr>
   <% for dt in @day_trip.destinations %>
-    <h3><%= link_to dt.title, day_trip_destination_path(@day_trip, dt), title: dt.title %></h3>
+    <h3><%= link_to dt.title, day_trip_destination_path(@day_trip, dt), title: dt.title %> <%= link_to 'Prices From $100/day, Book now!', day_trip_destination_path(@day_trip, dt), class: 'btn btn-large btn-warning pull-right' %></h3>
 		<%= markdown dt.description.truncate(300) %>
 		<p><%= link_to 'Read more...', day_trip_destination_path(@day_trip, dt), class: 'btn' %></p>
   <% end %>
@@ -49,13 +49,13 @@
 	  <div class="control-group">
 	    <%= f.label :price, 'Price breakdown', :class => 'control-label' %>
 	    <div class="controls">
-	      <%= f.text_area :price, :class => 'span6', rows: 6 %>
+	      <%= f.cktext_area :price, toolbar: 'Basic', :class => 'span6', rows: 6 %>
 	    </div>
 	  </div>
 	  <div class="control-group">
 	    <%= f.label :description, class: 'control-label' %>
 	    <div class="controls">
-	      <%= f.text_area :description, class: 'span6', rows: 8 %>
+	      <%= f.cktext_area :description, toolbar: 'Basic', class: 'span6', rows: 8 %>
 	    </div>
 	  </div>
 	

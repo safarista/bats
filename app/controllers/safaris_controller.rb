@@ -2,14 +2,15 @@ class SafarisController < ApplicationController
   # # Filters and Authorization
   skip_before_filter :require_login, :only => [:index, :show]
   
-  load_and_authorize_resource :safari # no customization needed here
-  load_and_authorize_resource :destination, :through => :safari
+  # load_and_authorize_resource :safari # no customization needed here
+  # load_and_authorize_resource :destination, :through => :safari
   # before_filter :authorize_parent
   
   # GET /safaris
   # GET /safaris.json
   def index
     @safaris = Safari.all
+    @title = 'Safaris, deals and destinations '
 
     respond_to do |format|
       format.html # index.html.erb
@@ -21,6 +22,7 @@ class SafarisController < ApplicationController
   # GET /safaris/1.json
   def show
     @safari = Safari.find(params[:id])
+    @title = @safari.title
 
     respond_to do |format|
       format.html # show.html.erb

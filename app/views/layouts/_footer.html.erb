@@ -1,13 +1,11 @@
       <footer class="footer">
       	<p><%= image_tag "bless-africa-tours-logo.png", title: "the bless africa tours logo", class: "pull-right" %></p>
-        <p>&copy; Bless Africa Tours &amp; Safaris 2012 &bull; 
-					<%= link_to "About us", :about_us %> &bull; 
-					<%= link_to "About Tanzania", :about_tanzania %> &bull; 
-					<%= link_to "Important Information", :important_information %> &bull; 
-					<%= link_to "Contact us", :contact_us %>  &bull; 
-					<%= link_to "Terms and Privacy", :terms_and_conditions %>
+        <p>&copy; Bless Africa Tours &amp; Safaris 2012  
+					<% static_pages.each do |page| %> 
+						&bull; <%= link_to page.name, page, title: page.name %>
+					<% end -%>
 				</p>
-				<p>Designed and built with all the love in the world <a href="http://safarista.com" target="_blank" title="Safarista Design">@Safarista Design</a> by <a href="http://twitter.com/ilinkoln">@iLinkoln</a> and <a href="http://safarista.com" title="Safarista Design | Web, branding, graphic, logo design, seo and web hosting Lincoln UK ">@Safarista</a></p>
+				<p>Designed and built with all the love in the world <a href="http://safarista.com" target="_blank" title="Safarista Design | Lincoln Web design, branding, graphic, logo design, seo and web hosting Lincoln UK ">@Safarista Design</a></p>
 			</footer>
 
     </div> <!-- /container -->
@@ -15,32 +13,32 @@
 		<!-- Javascripts
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <%= javascript_include_tag "application" %>
-		<script type="text/javascript">
-		(function($) {
+    
+	<script type="text/javascript">
+		$(function($) {
 			$("a[rel=popover]").popover();
 			$(".tooltip").tooltip();
 			$("a[rel=tooltip]").tooltip();
 			$(".carousel").carousel();
 			$('.dropdown-toggle').dropdown();
-		}).call(this);
-		</script>
+		});
+	</script>
 		
-		<!-- ====Google Analytics==== -->
-		<% if Rails.env.production? %>
+	<!-- ====Google Analytics==== -->
+	<% if Rails.env.production? %>
 		<script type="text/javascript">
 
-		  var _gaq = _gaq || [];
-		  _gaq.push(['_setAccount', 'UA-19064616-12']);
-		  _gaq.push(['_trackPageview']);
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-19064616-12']);
+			_gaq.push(['_trackPageview']);
 
-		  (function() {
-		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		  })();
+			(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
 
 		</script>
-		<% end %>
+	<% end %>
   </body>
 </html>

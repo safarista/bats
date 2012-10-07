@@ -1,13 +1,14 @@
-<%- model_class = Safari.new.class -%>
-<h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+<% model_class = Safari.new.class %>
+<h1><%=t '.title', :default => model_class.model_name.human.pluralize %> <small>destinations</small></h1>
 
 <% @safaris.each do |safari| %>
-<article>
+<article class="clearfix">
 	<h2><%= link_to safari.title, safari_path(safari), title: safari.title %></h2>
 	<%= markdown safari.description.truncate(500) %>
 	
 </article>
 <hr>
+
 <% end %>
 
 

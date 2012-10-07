@@ -23,7 +23,7 @@
   <div class="control-group">
     <%= f.label :content, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_area :content, :class => 'span7', rows: 9, required: true %>
+      <%= f.cktext_area :content, toolbar: 'Basic', input_html: { :class => 'span7', rows: 9} %>
     </div>
   </div>
 	<!--  === Disable until I can fix it ===

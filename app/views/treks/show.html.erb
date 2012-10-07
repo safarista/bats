@@ -1,8 +1,8 @@
 <%- model_class = @trek.class -%>
 <h1><%=t '.title', :default => @trek.title %></h1>
+<%= markdown @trek.description %>
 
-  <%= markdown @trek.description %>
-	
+
 <% if can? :access, @trek %>
 	<div class="form-actions">
 	  <%= link_to t('.back', :default => t("helpers.links.back")),
@@ -19,14 +19,20 @@
 
 <!--=== Destinations start here ===-->
 
-<article class="">
+<article class="clearfix">
 <% if !@trek.destinations.blank? %>
-	<h6>Destinations</h6>
+	<h4>Destinations</h4>
 	<hr>
   <% for tr in @trek.destinations %>
-    <h3><%= link_to tr.title, trek_destination_path(@trek, tr), title: tr.title %></h3>
-		<%= markdown tr.description.truncate(300) %>
-		<p><%= link_to 'Read more...', trek_destination_path(@trek, tr), class: 'btn' %></p>
+
+    <h3><%= link_to tr.title, trek_destination_path(@trek, tr), title: tr.title %> <%= link_to 'Prices From $1600, Book now!', trek_destination_path(@trek, tr), class: 'btn btn-large btn-warning pull-right' %></h3>
+		<!-- <p>&nbsp;  &nbsp;</p> -->
+		<div class="clearfix"><%= markdown tr.description.truncate(300) %>
+		
+		<div class="alert alert-success">
+			<%= markdown tr.price %></div>
+		</div>
+		<hr>
   <% end %>
 <% else %>
   <div class="alert">
@@ -53,13 +59,13 @@
 	  <div class="control-group">
 	    <%= f.label :price, 'Price breakdown', :class => 'control-label' %>
 	    <div class="controls">
-	      <%= f.text_area :price, :class => 'span6', rows: 6 %>
+	      <%= f.cktext_area :price, toolbar: 'Basic', :class => 'span6', rows: 6 %>
 	    </div>
 	  </div>
 	  <div class="control-group">
 	    <%= f.label :description, class: 'control-label' %>
 	    <div class="controls">
-	      <%= f.text_area :description, class: 'span6', rows: 8 %>
+	      <%= f.cktext_area :description, toolbar: 'Basic', class: 'span6', rows: 8 %>
 	    </div>
 	  </div>
 	

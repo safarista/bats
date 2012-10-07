@@ -1,0 +1,19 @@
+<h2><%= @newsletter.title %></h2>
+<div class="clearfix">
+	<% if !@newsletter.delivered_at.nil? %>
+  <b>Delivered at:</b>
+  <%= time_tag Date.today, @newsletter.delivered_at %>
+  <% else %>
+  <%= link_to 'Deliver this newsletter!', '', class: 'btn btn-warning' %>
+  <% end -%>
+
+  <span class="pull-right btn-group">
+  	<%= link_to 'Edit', edit_newsletter_path(@newsletter), class: 'btn btn-primary' %> 
+  	<%= link_to 'Cancel', newsletters_path, class: 'btn' %> 
+  	<%= link_to 'Delete', newsletters_path, class: 'btn btn-danger', method: :delete, confirm: 'Are you sure!' %>
+  </span>
+</div>
+
+<%= markdown @newsletter.content %>
+
+

@@ -1,6 +1,15 @@
 Bats::Application.routes.draw do
   
+  mount Ckeditor::Engine => '/ckeditor'
   
+  resources :bookings
+
+  resources :newsletters do
+    member do
+      post 'deliver' 
+    end
+  end
+
   resources :posts do
     resources :comments
   end
@@ -39,16 +48,19 @@ Bats::Application.routes.draw do
   match 'logout' => 'sessions#destroy', :as => :logout
   
   resources :home
-  resources :welcome
-  match 'about_us'              => 'welcome#about_us', as: :about_us
-  match 'accommodation'         => 'welcome#accommodation', as: :accommodation
-  match 'about_tanzania'        => 'welcome#about_tanzania', as: :about_tanzania
-  match 'contact_us'            => 'welcome#contact_us', as: :contact_us
-  match 'guides_and_porters'    => 'welcome#guides_and_porters', as: :guides_and_porters
-  match 'kit_hire'              => 'welcome#kit_hire', as: :kit_hire 
-  match 'itineraries'           => 'welcome#itineraries', as: :itineraries
-  match 'important_information' => 'welcome#important_information', as: :important_information
-  match 'terms_and_conditions'  => 'welcome#terms_and_conditions', as: :terms_and_conditions
+  resources :pages, except: :show
+  
+  get ':id', to: 'pages#show', as: :page
+  put ':id', to: 'pages#update', as: :page
+  delete ':id', to: 'pages#destroy', as: :page 
+
+  # %w[ about_us accommodation about_tanzania booking contact_us guides_and_porters kit_hire itineraries important_information terms_and_conditions faq ].each do |page|
+  #   get page, controller: :pages, action: page
+  # end
+
+
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

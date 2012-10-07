@@ -1,6 +1,5 @@
-<%- model_class = Beach.new.class -%>
-<h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
-
+<% model_class = Beach.new.class %>
+<h1><%=t '.title', :default => model_class.model_name.human.pluralize %> <small>holidays and destinations</small></h1>
 
 <% @beaches.each do |beach| %>
 <article>

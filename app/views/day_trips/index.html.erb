@@ -1,16 +1,16 @@
 <%- model_class = DayTrip.new.class -%>
-<h1><%=t '.title', default: 'Day trips offered by Bless Africa Tours and Safaris' %></h1>
+<h1><%=t '.title', default: 'Day trip offers' %></h1>
 <h3><small>INTRODUCTION</small></h3>
 <p>The team at Bless Africa Tours and Safaris want visitors to Tanzania to be able to experience every facet of Tanzania: the culture, flora, fauna and the unique experiences our beautiful country can offer.
 <p>Moshi, our home, is very fortunate to be set in the foothills of Mount Kilimanjaro. Because of its unique position there is a wealth of day excursions and short trips available within relatively close proximity.
 <p>You do not need to be an athlete to be able to say that you have walked on Mount Kilimanjaro; we can arrange a day hike to the first camp, the Mandara hut, on the Marangu summit route on the mountain.
 <p>There are many beautiful walks within the rainforest incorporating scenic waterfalls and opportunities to view an amazing array of animal and plant life. Further afield the team will be able to offer day and short safaris to the National Parks of Arusha, Taringire, Ngorongoro and Lake Manyara.  Lake Chala, set to the east of Kilimanjaro, near the Kenyan border, offers a unique opportunity to explore a crater lake for a day or longer if desired.
-<p>Alongside the outstanding opportunities to view the natural environment there is also a strong cultural heritage belonging to the indigenous people from the area. We can arrange trips to explore the cultural traditions of both the Chagga, who live in the Kilimanjaro region, and the Masai, who live a nomadic life within Tanzania and Kenya.
+<p>Alongside the outstanding opportunities to view the natural environment there is also a strong cultural heritage belonging to the indigenous people from the area. We can arrange trips to explore the cultural traditions of both the Chagga, who live in the Kilimanjaro region, and the Masai, who live a nomadic life within Tanzania and Kenya.	
+<p><button class="btn btn-warning btn-large">Prices starting from &dollar;100/day USD</button></p>
 
-<h2>Day Safaris, Treks and Beach trips</h2>
-
+<h4>See below for more information and specific routes and destinations.</h4>
 <% @day_trips.each do |day_trip| %>
-	<h3><%= link_to day_trip.title, day_trip_path(day_trip), title: day_trip.title %></h3>
+	<h3><%= link_to day_trip.title, day_trip_path(day_trip), title: day_trip.title %> </h3>
 	<%= markdown day_trip.description.truncate(300) %>
 	<hr>
 <% end %>

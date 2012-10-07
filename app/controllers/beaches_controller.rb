@@ -1,5 +1,6 @@
 class BeachesController < ApplicationController
-  skip_before_filter :require_login, :only => [:index, :show]
+  # skip_authorization_check only: [:index, :show]
+  skip_before_filter :require_login, only: [:index, :show]
   # GET /beaches
   # GET /beaches.json
   def index
