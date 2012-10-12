@@ -13,9 +13,8 @@
 			    <div class="item">
 			    	<%= image_tag 'blessafrica-slider.jpg', width: '100%' %>
 					<div class="carousel-caption">
-			  			<h4>First Thumbnail label</h4>
-			  			<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-			  		</div>
+						<%= markdown photo.caption %>
+					</div>
 				</div>
 				<% end -%>
 			  <% end %>
@@ -89,16 +88,17 @@
 		</div>
 	</div>
 	<div class="bs-links">
-	
 		<ul class="quick-links">
-			<li class="btn"><a href="http://www.facebook.com/pages/Bless-Africa-Tours/221432741271264" title="Bless-Africa-Tours  facebook page">Facebook</a></li>
-			<li class="btn"><a href="http://twitter.com/blesstours" title="Bless Africa Tours and Safaris twitter profile">Twitter</a></li>
-			<li class="btn"><a href="#" title="Google plus page">Google+</a></li>
-			<li class="btn"><a href="#" title="LinkedIn page">LinkedIn</a></li>
+			<li class="btn"><%= link_to 'Facebook', 'http://www.facebook.com/pages/Bless-Africa-Tours/221432741271264', title: 'Bless-Africa-Tours  Facebook page', target: '_blank' %></li>
+			<li class="btn"><%= link_to 'Twitter', 'https://twitter.com/blesstours', title: 'Bless Africa Tours and Safaris Twitter profile', target: '_blank' %></li>
+			<li class="btn"><%= link_to 'Google+' , "#", title: "Google plus page", target: '_blank' %></li>
+			<li class="btn"><%= link_to 'LinkedIn', '#', title: "LinkedIn page", target: '_blank' %></li>
 		</ul>
 	</div>
 </header>
+
 <hr>
+
 <div class="marketing">
 	<div class="row">
 		<div class="span6">

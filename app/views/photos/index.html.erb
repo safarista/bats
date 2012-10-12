@@ -3,9 +3,7 @@
 <%=t '.title', :default => "Album: #{@album.title}" %> 
 
 <% if can? :access, @photos %>
-	<%= link_to t('.new', :default => t("helpers.links.add_photo")),
-	            new_album_photo_path(@album),
-	            :class => 'btn btn-primary pull-right' %>
+	<%= link_to "Add photo", new_album_photo_path( album_id: @album ), class: 'btn btn-primary pull-right' %>
 <% end %>
 </h1>
 
@@ -18,7 +16,7 @@
 	<div class="item">
 			<%= link_to image_tag(photo.name? ? photo.name_url : "http://placehold.it/260x180", width: "100%"), album_photo_path(@album, photo) %>
 			<div class="carousel-caption">
-				<h4><%= @album.title %></h4>
+				<h4>Album: <%= @album.title %></h4>
 				<%= markdown photo.caption %>
 			</div>
 		</div>

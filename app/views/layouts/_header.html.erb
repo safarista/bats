@@ -45,6 +45,7 @@
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
 								<ul class="dropdown-menu">
+									<li><%= link_to "Galleries", :albums, title: 'Galleries' %></li>
 									<li><%= link_to "Blog", :posts, title: 'Our travel blog'  %></li>
 									<% static_pages.each do |page| %> 
 									<li><%= link_to page.name, page, title: page.name %></li>

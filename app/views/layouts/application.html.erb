@@ -1,31 +1,34 @@
-
 <%= render 'layouts/header' %>
 
-    <div class="container">
-      <div class="content">
+<div class="container">
+    <div class="content">
         <div class="row">
-           <div class="span9">
-              <%= yield %>
+            <div class="span9">
+                <%= yield %>
             </div>
+
             <div class="span3">
-							<div class="well sidebar-nav">
+                <div class="well sidebar-nav">
                 <ul class="nav nav-list">
-                  <li class="nav-header">Important links</li>
-                  <!-- STATIC PAGES -->
-                  <% static_pages.each do |page| %>
+                    <li class="nav-header">Important links</li>
+
+                    <!-- STATIC PAGES -->
+                    <% static_pages.each do |page| %>
                     <li><%= link_to page.name, page, title: page.name %></li>
                     <% end -%>
 
-                  <li><%= link_to "Blog", :posts, title: 'Read the blog' %></li> 
-                  <% if can? :access, :pages %>
-                  <li><%= link_to "Subscribe to Newsletter", :newsletters, title: 'Subscribe to our newsletter' %></li>
-                  <li><%= link_to "All Pages", :pages %></li>
-                  <% end -%>
-                  <li><%= link_to "Booking", :bookings, title: 'Booking' %></li>
+                    <li><%= link_to "Blog", :posts, title: 'Read the blog' %></li>
+
+                    <% if can? :access, :pages %>
+                    <li><%= link_to "Subscribe to Newsletter", :newsletters, title: 'Subscribe to our newsletter' %></li>
+                    <li><%= link_to "All Pages", :pages %></li>
+                    <li><%= link_to "All Booking", :bookings, title: 'Booking' %></li>
+                    <% end -%>
+                    <li><%= link_to "Albums", :albums, title: 'Albums' %></li>
                 </ul>
               </div><!--/.well -->
             </div><!--/span-->
         </div><!--/row-->
-      </div><!--/content-->
+    </div><!--/content-->
 
 <%= render 'layouts/footer' %>

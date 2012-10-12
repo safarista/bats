@@ -1,6 +1,10 @@
 class PhotosController < ApplicationController
   skip_before_filter :require_login, :only => [:index, :show]
   before_filter :find_album
+
+  # load_and_authorize_resource :albums
+  # load_and_authorize_resource :photos, :through => :albums
+
   # GET /photos
   # GET /photos.json
   def index
