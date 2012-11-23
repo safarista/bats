@@ -1,12 +1,12 @@
-      <footer class="footer">
-      	<p><%= image_tag "bless-africa-tours-logo.png", title: "the bless africa tours logo", class: "pull-right" %></p>
-        <p>&copy; Bless Africa Tours &amp; Safaris 2012  
-					<% static_pages.each do |page| %> 
-						&bull; <%= link_to page.name, page, title: page.name %>
-					<% end -%>
-				</p>
-				<p>Designed and built with all the love in the world <a href="http://safarista.com" target="_blank" title="Safarista Design | Lincoln Web design, branding, graphic, logo design, seo and web hosting Lincoln UK ">@Safarista Design</a></p>
-			</footer>
+	<footer class="footer">
+      	<p><%= image_tag "bless-africa-tours-logo.png", title: "the bless africa tours logo", class: "pull-right" %></p>  
+		<p>
+			<% static_pages.each do |page| %> 
+				<%= link_to page.name, page, title: page.name %> | 
+			<% end -%>
+		</p>
+		<p>&copy; Bless Africa Tours &amp; Safaris 2012 | Designed by <a href="http://safarista.com" target="_blank" title="Safarista Design | Lincoln Web design, branding, graphic, logo design, seo and web hosting Lincoln UK ">@Safarista Design</a></p>
+	</footer>
 
     </div> <!-- /container -->
 		

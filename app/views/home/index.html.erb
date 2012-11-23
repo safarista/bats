@@ -56,9 +56,9 @@
 		</p> -->
 		<div class="span3">
 			<div class="alert">
-				<h2 style="text-align:center;">Mountain Treks</h2>
-				<p>Summit Kilimanjaro</p>
-				<p><strong>From &dollar;200/day</strong> <br> Oct - Mar</p>
+				<h2 style="text-align:center;"><span class="visible-desktop">Mountain Treks</span><span class="visible-tablet visible-phone">Trekking</span></h2>
+				<p>Summit Kilimanjaro <span class="visible-phone">guaranteed trip departing May 26th 2013</span></p>
+				<p><strong>From &dollar;1600</strong> <br> departing May 26th 2013</p>
 				<p><%= link_to  "Book Now!", :treks, class: "btn btn-warning btn-large" %></p>
 			</div>
 		</div>
@@ -66,7 +66,7 @@
 			<div class="alert alert-success">
 				<h2 style="text-align:center;">Safaris</h2>
 				<p>Witness a wildlife spectacular</p>
-				<p><strong>From &dollar;200/day</strong> <br> Oct - Mar</p>
+				<p><strong>From &dollar;300/day</strong> <br> Oct - Mar</p>
 				<p><%= link_to  "Book Now!", :safaris, class: "btn btn-warning btn-large btn-block" %></p>
 			</div>
 		</div>
@@ -81,7 +81,8 @@
 		<div class="span3">
 			<div class="alert alert-danger">
 				<h2 style="text-align:center;">Day Trips</h2>
-				<p>Taste some of Tanzania's delights</p>
+				<p><span class="visible-desktop">Taste some of </span>Tanzanian delights</p>
+				
 				<p><strong>From &dollar;100/day</strong> <br> Oct - Mar</p>
 				<p><%= link_to  "Book Now!", :day_trips, class: "btn btn-warning btn-large" %></p>
 			</div>
@@ -92,7 +93,6 @@
 			<li class="btn"><%= link_to 'Facebook', 'http://www.facebook.com/pages/Bless-Africa-Tours/221432741271264', title: 'Bless-Africa-Tours  Facebook page', target: '_blank' %></li>
 			<li class="btn"><%= link_to 'Twitter', 'https://twitter.com/blesstours', title: 'Bless Africa Tours and Safaris Twitter profile', target: '_blank' %></li>
 			<li class="btn"><%= link_to 'Google+' , "#", title: "Google plus page", target: '_blank' %></li>
-			<li class="btn"><%= link_to 'LinkedIn', '#', title: "LinkedIn page", target: '_blank' %></li>
 		</ul>
 	</div>
 </header>
@@ -102,21 +102,21 @@
 <div class="marketing">
 	<div class="row">
 		<div class="span6">
-			<h2><i class="icon icon-user icon-large "></i>&nbsp; About us</h2>
+			<h2><%= link_to 'About us', '/about_us', title: 'About Us' %></h2>
 			<p>Bless Africa Tours  and safaris is a locally owned Travel company based in Moshi. With over 6 years experience in the Trek and Travel industry and extensive local knowledge and links the company strives to add something extra to a visit to Tanzania.</p>
 		</div>
 		<div class="span6">
-			<h2><i class="icon icon-home icon-large "></i> Accommodation</h2>
+			<h2><%= link_to 'Accommodation', '/accommodation', title: 'Accommodation' %></h2>
 			<p>Included are example of some of the hotels, lodges and camps that Bless Africa Tours  and Safaris may use for holiday accommodation on their organised trips.</p>
 		</div>
 	</div>
 	<div class="row">
 		<div class="span6">
-			<h2><i class="icon icon-gift icon-large "></i> Kit Hire</h2>
+			<h2><%= link_to 'Kit Hire', '/kit_hire', title: 'Hire Safaris and mountain Trekking kits' %></h2>
 			<p>Bless Africa Tours and Safaris have an extensive supply of clothing and equipment available to hire for guests taking part in a Trekking holiday.</p>
 		</div>
 		<div class="span6">
-			<h2><i class="icon icon-picture icon-large "></i> Mountain Trekking</h2>
+			<h2><%= link_to 'Mountain Trekking', '/treks', title: 'Mountain Trekking Tours' %></h2>
 			<p>With over 6 years experience of supporting and leading  Treks on both Mt Meru and Mt Kilimanjaro,  the team at Bless Africa Tours and safaris are able to offer further advice on selecting the right Trek for our guests.</p>
 		</div>
 	</div>
@@ -124,11 +124,11 @@
 	<div class="row">
 
 		<div class="span6">
-			<h2><i class="icon icon-glass icon-large "></i> Safaris and Beach Holidays</h2>
+			<h2><%= link_to 'Safaris and Beach Holidays', '/safaris', title: 'Safaris and Beach Holidays' %></h2>
 			<p>Tanzania is blessed with some of the most amazing animal life in the world. Explore the beautiful National Parks, and then round off the trip of a lifetime with a visit to some of the most stunning beaches in Africa.</p>
 		</div>
 		<div class="span6">
-			<h2><i class="icon icon-camera icon-large "></i> Day Trips</h2>
+			<h2><%= link_to 'Day Trips', '/day_trips', title: 'Day Trips' %></h2>
 			<p>Set within the foothills of Mount Kilimanjaro, and close to the National parks of Tanzania, Moshi is well placed to explore everything Tanzania has to offer from a Day Hike on Mount Kilimanjaro to the splendour of Arusha National Park.</p>
 		</div>
 	</div>
