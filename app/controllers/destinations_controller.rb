@@ -75,18 +75,6 @@ class DestinationsController < ApplicationController
       end
     end
   end
-  # 
-  # # DELETE /destinations/1
-  # # DELETE /destinations/1.json
-  # def destroy
-  #   @destination = Destination.find(params[:id])
-  #   @destination.destroy
-  # 
-  #   respond_to do |format|
-  #     format.html { redirect_to destinations_url }
-  #     format.json { head :no_content }
-  #   end
-  # end
   
   def create
     @destination = @destineable.destinations.build(params[:destination])
@@ -95,6 +83,19 @@ class DestinationsController < ApplicationController
     else
       flash[:error] = 'You cannot post an empty destination.'
       redirect_to :back
+    end
+  end
+  
+  # 
+  # # DELETE /destinations/1
+  # # DELETE /destinations/1.json
+  def destroy
+    @destination = Destination.find(params[:id])
+    @destination.destroy
+  
+    respond_to do |format|
+      format.html { redirect_to @destineable }
+      format.json { head :no_content }
     end
   end
 

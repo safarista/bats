@@ -42,8 +42,8 @@ class User < ActiveRecord::Base
 
   private
 
-  def self.fix_username
-    return username.downcase.strip.squeeze.gsub(/\s/, '_') unless !username_changed?
+  def fix_username
+    username =  self.username.downcase.strip.squeeze.gsub(/\s/, '_') if username_changed?
   end
   
 end

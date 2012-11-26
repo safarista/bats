@@ -2,7 +2,6 @@
 <h1><%=t '.title', :default => @user.full_name %> <small><i>(<%= @user.username %>)</i></small></h1>
 
 <section class="well">
-  <h3>About <small>(<%= @user.username %>)</small>:</h3>
 	<%= markdown "Email: #{@user.email}" if can? :update, :users %>
   <%= markdown @user.about %>
 </section>

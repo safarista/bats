@@ -58,14 +58,14 @@ class UsersController < ApplicationController
   # PUT /users/1.xml
   def update
     @user.ip_address_info = request.remote_ip
-    respond_to do |wants|
+    respond_to do |format|
       if @user.update_attributes(params[:user])
         flash[:notice] = 'User was successfully updated.'
-        wants.html { redirect_to(@user) }
-        wants.xml  { head :ok }
+        format.html { redirect_to(@user) }
+        format.xml  { head :ok }
       else
-        wants.html { render :action => "edit" }
-        wants.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end
     end
   end
