@@ -3,7 +3,7 @@
 <%=t '.title', :default => "Album: #{@album.title}" %> 
 
 <% if can? :access, @photos %>
-	<%= link_to "Add photo", new_album_photo_path( album_id: @album ), class: 'btn btn-primary pull-right' %>
+	<%= link_to "Add photo", new_album_photo_path( @album ), class: 'btn btn-primary pull-right' %>
 <% end %>
 </h1>
 
