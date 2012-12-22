@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
-gem 'libv8', '~> 3.11.8'
+# gem 'libv8', '~> 3.11.8' # don not use this gem in production in a Gemfile. Install it on the machine.
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
