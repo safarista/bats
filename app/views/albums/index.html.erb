@@ -3,7 +3,7 @@
 
 <ul class="thumbnails">
 	<% @albums.each do |album| %>
-		<% if album.photos.find(:first) do |p| %>
+		<% if album.photos.find(:last) do |p| %>
   		<li class="span3">
 				<div class="thumbnail" >
 					<%= link_to image_tag(p.name_url(:thumb), alt: p.caption, width: '100%'), album_photos_path(album) %>
@@ -11,12 +11,8 @@
 					<h5><%= link_to album.title, album_photos_path(album) %></h5>
 				</div>
 			</li>
-		<% else %>
-		<li class="span3">
-			<div class="thumbnail" >
-				<%= link_to image_tag('http://placehold.it/260x80', alt: 'Place holder', width: '100%'), '#' %>
-			</div>
-		</li>
+		<% end %>
+	<% end %>
 	<% end %>
 </ul>
 <hr>
