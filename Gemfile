@@ -49,7 +49,7 @@ gem 'redcarpet'
 
 # File upload management
 gem 'carrierwave'
-gem 'fog'
+gem 'fog', '~> 1.7'
 gem 'mini_magick'
 
 # Pagination and scrolling log articles
