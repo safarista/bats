@@ -4,6 +4,16 @@ class AlbumsController < ApplicationController
   # GET /albums.json
   def index
     @albums = Album.all
+    
+    # if @albums
+    #   @albums.each do |album|
+    #    @album_cover = album.photos.try(:find, :first)
+    #   end
+    # else
+    #   nil
+    # end
+    # 
+    # @album_cover
 
     respond_to do |format|
       format.html # index.html.erb
