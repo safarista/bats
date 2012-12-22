@@ -1,13 +1,13 @@
 <% model_class = @photo.class %>
-<h1><%=t '.title', :default => model_class.model_name.human %></h1>
-
-<p><%= image_tag @photo.name_url, title: @photo.caption, alt: @photo.caption, width: "100%" %></p>
-<p><strong><%= model_class.human_attribute_name(:album_name	) %>:</strong> 
+<p><strong>Album:</strong> 
   <%= @photo.album.title %>
 </p>
-<p><strong><%= model_class.human_attribute_name(:caption) %>:</strong><br>
-  <%= @photo.caption %>
-</p>
+<p><%= image_tag @photo.name_url, title: @photo.caption, alt: @photo.caption, width: "100%" %></p>
+
+<div class="clearfix">
+	<p><strong><%= model_class.human_attribute_name(:caption) %>:</strong></p>
+	<%= markdown @photo.caption %>
+</div>
 
 
 <% if can? :access, @photo %>
