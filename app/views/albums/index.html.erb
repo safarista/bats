@@ -6,7 +6,7 @@
 			<% p = album.photos.try(:last) %>
   		<li class="span3">
 				<div class="thumbnail" >
-					<%= link_to image_tag(p.name_url(:thumb), alt: p.caption, width: '100%'), album_photos_path(album) %>
+					<%= link_to image_tag(p.name ? p.name.url(:thumb): 'http://placehold.it/260x180', alt: p.caption, width: '100%'), album_photos_path(album) %>
 					<hr>
 					<h5><%= link_to album.title, album_photos_path(album) %></h5>
 				</div>
