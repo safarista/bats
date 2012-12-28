@@ -3,7 +3,7 @@
 
 <ul class="thumbnails">
 		<% @albums.each do |album| %>
-			<% p = album.photos.try(:last) %>
+			<% p = album.photos[0] %>
   		<li class="span3">
 				<div class="thumbnail" >
 					<%= link_to image_tag(p.name ? p.name.url(:thumb): 'http://placehold.it/260x180', alt: p.caption, width: '100%'), album_photos_path(album) %>
