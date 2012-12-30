@@ -7,29 +7,14 @@
 		<div id="myCarousel" class="carousel slide">
 		  <!-- Carousel items -->
 		  <div class="carousel-inner">
-			<% if @album.photos %>
 			  <% @album.photos.each do |photo| %>
-				<%= photo.name %> <br>
-				<%= photo.name.url %>
-				<% 5.times do %>
 			    <div class="item">
 			    	<%= image_tag photo.name? ? photo.name : 'http://placehold.it/800x400', width: "100%" %>
 					<div class="carousel-caption">
 						<%= markdown photo.caption %>
 					</div>
 				</div>
-				<% end -%>
 			  <% end %>
-			<% else %>
-			  <div class=" item">
-			  	<%= image_tag "http://placehold.it/800x400", title: 'This is the slideshow place holder', width: "100%" %>
-			  	<div class="carousel-caption">
-			  		<h4>First Thumbnail label</h4>
-			  		<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-			  	</div>
-			  </div>
-				<div class=" item"><%= image_tag "http://placehold.it/800x400", title: 'This is the slideshow place holder', width: "100%" %></div>
-			<% end %>
 		  </div>
 		  <!-- Carousel nav -->
 		  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
