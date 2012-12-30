@@ -11,7 +11,7 @@
 			  <% @album.photos.each do |photo| %>
 				<% 5.times do %>
 			    <div class="item">
-			    	<%= image_tag photo.name? ? photo.name_url : 'http://placehold.it/800x400', title: photo.caption,	width: "100%" %>
+			    	<%= image_tag photo.name? ? photo.name.url : 'http://placehold.it/800x400', width: "100%" %>
 					<div class="carousel-caption">
 						<%= markdown photo.caption %>
 					</div>
